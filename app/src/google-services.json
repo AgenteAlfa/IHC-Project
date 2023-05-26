@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "466847977825",
+    "firebase_url": "https://proyectoihc-448b1-default-rtdb.firebaseio.com",
+    "project_id": "proyectoihc-448b1",
+    "storage_bucket": "proyectoihc-448b1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:466847977825:android:bcbf81689682680e65b520",
+        "android_client_info": {
+          "package_name": "com.grupo2.proteam"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "466847977825-d5m9in3di5o1ahv4i4bkr7t0gpgd2hv5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.grupo2.proteam",
+            "certificate_hash": "e4bf1ddf818363224fde81c1f2f6bab36880bd0b"
+          }
+        },
+        {
+          "client_id": "466847977825-7mblpg6k0qv88lsvh9iailsmiopahu0e.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDjU1StCOzWMrA-7T5LFyKHe3XOzKEBV-s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "466847977825-7mblpg6k0qv88lsvh9iailsmiopahu0e.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
