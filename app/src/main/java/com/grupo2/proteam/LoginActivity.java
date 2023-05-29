@@ -44,6 +44,12 @@ public class LoginActivity extends AppCompatActivity {
                 .signOut(LoginActivity.this)
                 .addOnCompleteListener(task -> RevisarCuenta()));
 
+        if(FirebaseAuth.getInstance().getCurrentUser()!= null)
+        {
+            startActivity(new Intent(this,EquiposActivity.class));
+        }
+
+
 
     }
     private void RevisarCuenta()
