@@ -15,7 +15,7 @@
             android:id="@+id/abEquipos_toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="@color/white"
+
             app:popupTheme="@style/Theme.ProTeam.PopupOverlay" />
 
     </com.google.android.material.appbar.AppBarLayout>
@@ -30,6 +30,7 @@
         android:layout_marginEnd="@dimen/fab_margin"
         android:layout_marginBottom="16dp"
         android:contentDescription="Ayuda"
-        app:srcCompat="@android:drawable/ic_dialog_email" />
+        app:backgroundTint="@color/azul_1"
+        app:srcCompat="@drawable/voz" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -6,6 +6,7 @@ import android.view.View;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import androidx.appcompat.widget.Toolbar;
 import androidx.navigation.NavController;
@@ -26,7 +27,6 @@ public class EquiposActivity extends AppCompatActivity {
         View AppBar = findViewById(R.id.Equipos_AppBar);
         Toolbar tbar = AppBar.findViewById(R.id.abEquipos_toolbar);
         setSupportActionBar(tbar);
-
         DrawerLayout drawer = findViewById(R.id.Equipos_DrawerLayout);
         NavigationView navigationView = findViewById(R.id.Equipos_nvLateral);
         navigationView.setItemIconTintList(null);
@@ -53,6 +53,12 @@ public class EquiposActivity extends AppCompatActivity {
     }
 
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+        //Revisar si se tiene la informacion personal en firebase
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+    }
 
     @Override
     public boolean onSupportNavigateUp() {

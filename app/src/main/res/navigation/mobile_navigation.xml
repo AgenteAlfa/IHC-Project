@@ -8,18 +8,19 @@
     <fragment
         android:id="@+id/navEquipos_itmEquipos"
         android:name="com.grupo2.proteam.ui.Equipos.EquiposFragment"
-        android:label="@string/menu_home"
-        tools:layout="@layout/fragment_equipos" />
+        android:label="@string/NavEquipos_Equipos"
+        tools:layout="@layout/fragment_equipos" >
+    </fragment>
 
     <fragment
-        android:id="@+id/navEquipos_itmNotificaciones"
+        android:id="@+id/navEquipos_itmDatos"
         android:name="com.grupo2.proteam.ui.Datos.DatosFragment"
-        android:label="@string/menu_gallery"
+        android:label="@string/NavEquipos_DatosPersonales"
         tools:layout="@layout/fragment_datos" />
 
     <fragment
         android:id="@+id/navEquipos_itmConfiguracion"
         android:name="com.grupo2.proteam.ui.Configuracion.ConfiguracionFragment"
-        android:label="@string/menu_slideshow"
+        android:label="@string/NavEquipos_Configuracion"
         tools:layout="@layout/fragment_configuracion" />
 </navigation>
