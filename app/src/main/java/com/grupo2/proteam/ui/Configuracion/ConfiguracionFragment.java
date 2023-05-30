@@ -1,4 +1,4 @@
-package com.grupo2.proteam.ui.slideshow;
+package com.grupo2.proteam.ui.Configuracion;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,18 +10,19 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.grupo2.proteam.databinding.FragmentSlideshowBinding;
+import com.grupo2.proteam.databinding.FragmentConfiguracionBinding;
 
-public class SlideshowFragment extends Fragment {
 
-    private FragmentSlideshowBinding binding;
+public class ConfiguracionFragment extends Fragment {
+
+    private FragmentConfiguracionBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        SlideshowViewModel slideshowViewModel =
-                new ViewModelProvider(this).get(SlideshowViewModel.class);
+        ConfiguracionViewModel slideshowViewModel =
+                new ViewModelProvider(this).get(ConfiguracionViewModel.class);
 
-        binding = FragmentSlideshowBinding.inflate(inflater, container, false);
+        binding = FragmentConfiguracionBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
         final TextView textView = binding.textSlideshow;

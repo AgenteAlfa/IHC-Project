@@ -15,7 +15,7 @@
             android:id="@+id/abEquipos_toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
+            android:background="@color/white"
             app:popupTheme="@style/Theme.ProTeam.PopupOverlay" />
 
     </com.google.android.material.appbar.AppBarLayout>
@@ -23,7 +23,7 @@
     <include layout="@layout/fragmentcontenedor_equipos" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/appbar_fabAyuda"
+        android:id="@+id/abEquipos_fabAyuda"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"

@@ -5,16 +5,29 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/navEquipos_home"
-            android:icon="@drawable/ic_menu_camera"
-            android:title="@string/menu_home" />
+            android:id="@+id/navEquipos_itmEquipos"
+            android:checkable="true"
+            android:icon="@drawable/trabajo_en_equipo"
+            android:title="Equipos de trabajo" />
         <item
-            android:id="@+id/navEquipos_gallery"
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="@string/menu_gallery" />
+            android:id="@+id/navEquipos_itmSuscripcion"
+            android:checkable="true"
+            android:icon="@drawable/suscripcion"
+            android:title="Suscripcion" />
         <item
-            android:id="@+id/navEquipos_slideshow"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="@string/menu_slideshow" />
+            android:id="@+id/navEquipos_itmDatos"
+            android:checkable="true"
+            android:icon="@drawable/informacion_personal"
+            android:title="Datos personales" />
+        <item
+            android:id="@+id/navEquipos_itmNotificaciones"
+            android:checkable="true"
+            android:icon="@drawable/campana"
+            android:title="Notificaciones" />
+        <item
+            android:id="@+id/navEquipos_itmConfiguracion"
+            android:checkable="true"
+            android:icon="@drawable/configuraciones"
+            android:title="Configuracion" />
     </group>
 </menu>

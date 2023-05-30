@@ -1,4 +1,4 @@
-package com.grupo2.proteam.ui.home;
+package com.grupo2.proteam.ui.Equipos;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,18 +10,18 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.grupo2.proteam.databinding.FragmentHomeBinding;
+import com.grupo2.proteam.databinding.FragmentEquiposBinding;
 
-public class HomeFragment extends Fragment {
+public class EquiposFragment extends Fragment {
 
-    private FragmentHomeBinding binding;
+    private FragmentEquiposBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        HomeViewModel homeViewModel =
-                new ViewModelProvider(this).get(HomeViewModel.class);
+        EquiposViewModel homeViewModel =
+                new ViewModelProvider(this).get(EquiposViewModel.class);
 
-        binding = FragmentHomeBinding.inflate(inflater, container, false);
+        binding = FragmentEquiposBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
         final TextView textView = binding.textHome;

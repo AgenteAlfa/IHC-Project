@@ -2,7 +2,6 @@ package com.grupo2.proteam;
 
 import android.os.Bundle;
 import android.view.View;
-import android.view.Menu;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
@@ -28,20 +27,22 @@ public class EquiposActivity extends AppCompatActivity {
         Toolbar tbar = AppBar.findViewById(R.id.abEquipos_toolbar);
         setSupportActionBar(tbar);
 
-        DrawerLayout drawer = findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.Equipos_DrawerLayout);
         NavigationView navigationView = findViewById(R.id.Equipos_nvLateral);
+        navigationView.setItemIconTintList(null);
 
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.navEquipos_home, R.id.navEquipos_gallery, R.id.navEquipos_slideshow)
+                //R.id.navEquipos_itmEquipos, R.id.navEquipos_itmNotificaciones, R.id.navEquipos_itmConfiguracion)
+                R.id.navEquipos_itmEquipos, R.id.navEquipos_itmDatos, R.id.navEquipos_itmConfiguracion)
                 .setOpenableLayout(drawer)
                 .build();
 
         NavController navController = Navigation.findNavController(this, R.id.contenedorEquipos_frgContenedor);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
-        FloatingActionButton FabAyuda = AppBar.findViewById(R.id.appbar_fabAyuda);
+        FloatingActionButton FabAyuda = AppBar.findViewById(R.id.abEquipos_fabAyuda);
         FabAyuda.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -51,12 +52,7 @@ public class EquiposActivity extends AppCompatActivity {
         });
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.equipos, menu);
-        return true;
-    }
+
 
     @Override
     public boolean onSupportNavigateUp() {

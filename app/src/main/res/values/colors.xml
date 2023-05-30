@@ -6,6 +6,7 @@
     <color name="verde_2">#177539</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="gris_claro">#D3D3D3</color>
     <color name="fondo">#29282B</color>
     <color name="transparente">#00FFFFFF</color>
 </resources>

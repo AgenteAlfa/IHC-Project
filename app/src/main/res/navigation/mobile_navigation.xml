@@ -3,23 +3,23 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/navEquipos_home">
+    app:startDestination="@+id/navEquipos_itmEquipos">
 
     <fragment
-        android:id="@+id/navEquipos_home"
-        android:name="com.grupo2.proteam.ui.home.HomeFragment"
+        android:id="@+id/navEquipos_itmEquipos"
+        android:name="com.grupo2.proteam.ui.Equipos.EquiposFragment"
         android:label="@string/menu_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_equipos" />
 
     <fragment
-        android:id="@+id/navEquipos_gallery"
-        android:name="com.grupo2.proteam.ui.gallery.GalleryFragment"
+        android:id="@+id/navEquipos_itmNotificaciones"
+        android:name="com.grupo2.proteam.ui.Datos.DatosFragment"
         android:label="@string/menu_gallery"
-        tools:layout="@layout/fragment_gallery" />
+        tools:layout="@layout/fragment_datos" />
 
     <fragment
-        android:id="@+id/navEquipos_slideshow"
-        android:name="com.grupo2.proteam.ui.slideshow.SlideshowFragment"
+        android:id="@+id/navEquipos_itmConfiguracion"
+        android:name="com.grupo2.proteam.ui.Configuracion.ConfiguracionFragment"
         android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_slideshow" />
+        tools:layout="@layout/fragment_configuracion" />
 </navigation>
