@@ -14,12 +14,12 @@
         android:layout_marginTop="16dp"
         android:backgroundTint="@color/azul_2"
         android:text="Acceder / Registrarse"
-        app:layout_constraintEnd_toEndOf="@+id/imageView"
-        app:layout_constraintStart_toStartOf="@+id/imageView"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        app:layout_constraintEnd_toEndOf="@+id/navheader_imgAvatar"
+        app:layout_constraintStart_toStartOf="@+id/navheader_imgAvatar"
+        app:layout_constraintTop_toBottomOf="@+id/navheader_imgAvatar" />
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/navheader_imgAvatar"
         android:layout_width="300dp"
         android:layout_height="350dp"
         android:layout_margin="15dp"

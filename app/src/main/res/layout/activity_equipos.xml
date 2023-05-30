@@ -9,18 +9,18 @@
     tools:openDrawer="start">
 
     <include
-        android:id="@+id/app_bar_equipos"
-        layout="@layout/app_bar_equipos"
+        android:id="@+id/Equipos_AppBar"
+        layout="@layout/appbar_equipos"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:visibility="visible" />
 
     <com.google.android.material.navigation.NavigationView
-        android:id="@+id/nav_view"
+        android:id="@+id/Equipos_nvLateral"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="start"
         android:fitsSystemWindows="true"
-        app:headerLayout="@layout/nav_header_equipos"
-        app:menu="@menu/activity_main_drawer" />
+        app:headerLayout="@layout/navheader_equipos"
+        app:menu="@menu/navmenu_equipos" />
 </androidx.drawerlayout.widget.DrawerLayout>
