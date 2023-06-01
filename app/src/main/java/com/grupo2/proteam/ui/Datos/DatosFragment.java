@@ -18,8 +18,8 @@ public class DatosFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        DatosViewModel galleryViewModel =
-                new ViewModelProvider(this).get(DatosViewModel.class);
+        DatosFrgViewModel galleryViewModel =
+                new ViewModelProvider(this).get(DatosFrgViewModel.class);
 
         binding = FragmentDatosBinding.inflate(inflater, container, false);
         View root = binding.getRoot();

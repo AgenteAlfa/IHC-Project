@@ -1,16 +1,16 @@
-package com.grupo2.proteam.ui.Equipos;
+package com.grupo2.proteam.ui.Configuracion;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class EquiposViewModel extends ViewModel {
+public class ConfiguracionFrgViewModel extends ViewModel {
 
     private final MutableLiveData<String> mText;
 
-    public EquiposViewModel() {
+    public ConfiguracionFrgViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is home fragment");
+        mText.setValue("This is slideshow fragment");
     }
 
     public LiveData<String> getText() {

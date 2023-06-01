@@ -18,8 +18,8 @@ public class EquiposFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        EquiposViewModel homeViewModel =
-                new ViewModelProvider(this).get(EquiposViewModel.class);
+        EquiposFrgViewModel homeViewModel =
+                new ViewModelProvider(this).get(EquiposFrgViewModel.class);
 
         binding = FragmentEquiposBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
