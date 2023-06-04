@@ -24,8 +24,6 @@ public class EquiposFragment extends Fragment {
         binding = FragmentEquiposBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.textHome;
-        homeViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         return root;
     }
 

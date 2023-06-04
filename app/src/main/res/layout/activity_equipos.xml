@@ -13,7 +13,8 @@
         layout="@layout/appbar_equipos"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:visibility="visible" />
+        android:visibility="visible"
+        tools:visibility="visible" />
 
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/Equipos_nvLateral"
@@ -23,5 +24,8 @@
         android:fitsSystemWindows="true"
         app:headerLayout="@layout/navheader_equipos"
         app:itemTextColor="@color/color_drawableselector"
-        app:menu="@menu/navmenu_equipos" />
+        app:menu="@menu/navmenu_equipos">
+
+    </com.google.android.material.navigation.NavigationView>
+
 </androidx.drawerlayout.widget.DrawerLayout>

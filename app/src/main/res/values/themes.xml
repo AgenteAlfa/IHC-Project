@@ -1,18 +1,23 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.ProTeam" parent="Theme.AppCompat.NoActionBar">
-        <!-- Primary brand color. -->
+    <style name="Theme.ProTeam" parent="Theme.MaterialComponents.NoActionBar">
         <item name="colorPrimary">@color/azul_1</item>
         <item name="colorPrimaryVariant">@color/azul_2</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/verde_1</item>
         <item name="colorSecondaryVariant">@color/verde_2</item>
-        <item name="colorOnSecondary">@color/black</item>
+        <item name="colorOnSecondary">@color/fondo</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+        <item name="cardViewStyle">@style/Theme.ProTeam.mCardView</item>
+        <item name="android:textColorPrimary">@color/black</item>
+        <item name="android:textColorSecondary">@color/black_suave</item>
+
     </style>
+
+
 
     <style name="FirebaseUIProTeam" parent="FirebaseUI">
         <item name="windowActionBar">false</item>

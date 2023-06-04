@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.ProTeam.ConstraintLayout" parent="Theme.ProTeam">
+        <item name="android:background">@color/fondo</item>
+    </style>
+    
+    <style name="Theme.ProTeam.mCardView">
+        <item name="cardBackgroundColor">@color/white</item>
+    </style>
+    <style name="ProTeamInputLayoutStyle" parent="Widget.MaterialComponents.TextInputLayout.FilledBox">
+        <item name="android:textColorPrimary">@color/black</item>
+        <item name="boxBackgroundColor">@color/white</item>
+        <item name="boxBackgroundMode">filled</item>
+    </style>
+</resources>

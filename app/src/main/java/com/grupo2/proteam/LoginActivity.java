@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.firebase.ui.auth.AuthUI;
 import com.firebase.ui.auth.IdpResponse;
@@ -49,18 +50,34 @@ public class LoginActivity extends AppCompatActivity {
                 .signOut(LoginActivity.this)
                 .addOnCompleteListener(task -> RevisarCuenta()));
 
-        if(FirebaseAuth.getInstance().getCurrentUser()!= null)
-        {
-            startActivity(new Intent(this,EquiposActivity.class));
-        }
-
-
 
     }
     private void RevisarCuenta()
     {
         FirebaseAuth mAuth = FirebaseAuth.getInstance();
         txtCuenta.setText(mAuth.getCurrentUser() == null ? "Sin usuario registrado" : "Email : " + mAuth.getCurrentUser().getEmail());
+        //Revisar si hay cuenta creada
+        if (mAuth.getCurrentUser() != null)
+        {
+            String uuid = mAuth.getCurrentUser().getUid();
+            FirebaseFirestore db = FirebaseFirestore.getInstance();
+            db.collection("Usuarios").document(uuid).get().addOnSuccessListener(documentSnapshot -> {
+                PrivadoUsuario DataUsuario = documentSnapshot.toObject(PrivadoUsuario.class);
+                if (DataUsuario == null)
+                {   //Si se tiene un dato nulo se procede a completar el proceso de regristro
+                    startActivity(new Intent(LoginActivity.this, RegistroActivity.class));
+                    Toast.makeText(LoginActivity.this, "Es necesario completar el registro", Toast.LENGTH_SHORT).show();
+                }
+                else
+                {
+                    startActivity(new Intent(LoginActivity.this, EquiposActivity.class));
+                }
+            }).addOnFailureListener(FalloGenerico);
+
+        }
+
+
+
     }
 
 
@@ -90,20 +107,6 @@ public class LoginActivity extends AppCompatActivity {
         if (result.getResultCode() == RESULT_OK) {
             // Successfully signed in
             FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-            assert user != null;
-            //Revisar si hay cuenta creada
-            String uuid = user.getUid();
-            FirebaseFirestore db = FirebaseFirestore.getInstance();
-            db.collection("Usuarios").document(uuid).get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
-                @Override
-                public void onSuccess(DocumentSnapshot documentSnapshot) {
-                    PrivadoUsuario DataUsuario = documentSnapshot.toObject(PrivadoUsuario.class);
-                    if (DataUsuario == null)
-                    {   //Si se tiene un dato nulo se procede a completar el proceso de regristro
-
-                    }
-                }
-            }).addOnFailureListener(FalloGenerico);
 
             // ...
             Log.d(TAG, "onSignInResult: inicio de sesion desde : " + user.getEmail());

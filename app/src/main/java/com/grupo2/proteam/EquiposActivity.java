@@ -73,30 +73,6 @@ public class EquiposActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        //Revisar si se tiene la informacion personal en firebase
-        if(DataVM.getUsuarioInfo() == null)
-        {
-            //Iniciar la consulta a Firestore
-            assert mAuth.getCurrentUser() != null;
-            String uuid = mAuth.getCurrentUser().getUid();
-            FirebaseFirestore db = FirebaseFirestore.getInstance();
-            db.collection("Usuarios").document(uuid).get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
-                @Override
-                public void onSuccess(DocumentSnapshot documentSnapshot) {
-                    DataVM.setUsuarioInfo(documentSnapshot.toObject(PrivadoUsuario.class));
-                    if (DataVM.getUsuarioInfo() == null)
-                    {   //Si se tiene un dato nulo se procede a completar el proceso de regristro
-
-                    }
-                }
-            }).addOnFailureListener(FalloGenerico);
-        }
-        else
-        {
-            //Continuar con el uso normal de la app
-
-        }
-
 
 
     }
