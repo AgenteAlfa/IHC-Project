@@ -12,4 +12,8 @@
         <item name="boxBackgroundColor">@color/white</item>
         <item name="boxBackgroundMode">filled</item>
     </style>
+    <style name="Button.Black" parent="ThemeOverlay.AppCompat">
+        <item name="backgroundColor">@color/black_suave</item>
+        <item name="colorAccent">@android:color/black</item>
+    </style>
 </resources>
