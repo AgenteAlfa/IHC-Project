@@ -1,19 +1,23 @@
 package com.grupo2.proteam.ui.Equipos;
 
-import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
+import com.grupo2.proteam.FStore.Equipo;
+
+import java.util.List;
+
 public class EquiposFrgViewModel extends ViewModel {
 
-    private final MutableLiveData<String> mText;
+
+    private final MutableLiveData<List<Equipo>> lstEquipos;
+
 
     public EquiposFrgViewModel() {
-        mText = new MutableLiveData<>();
-        mText.setValue("This is home fragment");
+        lstEquipos = new MutableLiveData<>(null);
     }
 
-    public LiveData<String> getText() {
-        return mText;
+    public MutableLiveData<List<Equipo>> getLstEquipos() {
+        return lstEquipos;
     }
 }

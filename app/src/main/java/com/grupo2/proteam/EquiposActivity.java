@@ -37,6 +37,7 @@ public class EquiposActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_equipos);
         View AppBar = findViewById(R.id.Equipos_AppBar);
         Toolbar tbar = AppBar.findViewById(R.id.abEquipos_toolbar);

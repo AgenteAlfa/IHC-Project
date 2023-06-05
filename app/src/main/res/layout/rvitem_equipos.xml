@@ -7,17 +7,17 @@
     android:padding="16dp">
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/floatingActionButton"
+        android:id="@+id/ListaEquipos_fabAgregar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="false"
         android:layout_centerInParent="true"
-        android:layout_marginEnd="294dp"
         android:clickable="true"
         android:contentDescription="Agregar equipo"
-        app:srcCompat="@drawable/mas" />
+        app:srcCompat="@drawable/mas"
+        tools:visibility="gone" />
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/ListaEquipos_cvItem"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="false"
@@ -33,13 +33,13 @@
             android:orientation="vertical">
 
             <ImageView
-                android:id="@+id/imageView"
+                android:id="@+id/ListaEquipos_imgFondo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:srcCompat="@drawable/edificios" />
 
             <TextView
-                android:id="@+id/textView2"
+                android:id="@+id/ListaEquipos_txtNombre"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingStart="8dp"
@@ -50,7 +50,7 @@
                 tools:text="Corporacion 123" />
 
             <TextView
-                android:id="@+id/textView3"
+                android:id="@+id/ListaEquipos_txtDescripcion"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingStart="8dp"
@@ -66,7 +66,7 @@
                 android:orientation="horizontal">
 
                 <Button
-                    android:id="@+id/button4"
+                    android:id="@+id/ListaEquipos_btnInfo"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
@@ -75,7 +75,7 @@
                     android:text="Info" />
 
                 <Button
-                    android:id="@+id/button3"
+                    android:id="@+id/ListaEquipos_btnEntrar"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
