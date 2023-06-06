@@ -31,7 +31,16 @@ public class EquiposViewModel extends ViewModel {
         });
 
         _lstEquipos = new MutableLiveData<>(new ArrayList<>());
-        Query consulta = db.collection("Equipos").whereEqualTo("Propietario", uuid);
+        ActualizarListaEquipos();
+    }
+
+    public void ActualizarListaEquipos()
+    {
+        FirebaseAuth mAuth = FirebaseAuth.getInstance();
+        assert mAuth.getCurrentUser() != null;
+        String uuid = mAuth.getCurrentUser().getUid();
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        Query consulta = db.collection("Equipos").whereEqualTo("propietario", uuid);
         consulta.get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
             @Override
             public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
@@ -40,7 +49,6 @@ public class EquiposViewModel extends ViewModel {
             }
         });
     }
-
 
     public PrivadoUsuario getUsuarioInfo() {
         return UsuarioInfo;

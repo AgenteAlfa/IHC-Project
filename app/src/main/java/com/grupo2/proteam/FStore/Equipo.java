@@ -3,38 +3,38 @@ package com.grupo2.proteam.FStore;
 import java.util.List;
 
 public class Equipo {
-    private String Propietario;
-    private String Nombre;
-    private String Descripcion;
-    private String Normativa;
-    private List<String> Colaboradores;
+    private String propietario;
+    private String nombre;
+    private String descripcion;
+    private String normativa;
+    private List<String> colaboradores;
     public Equipo(){}
 
     public Equipo(String propietario, String nombre, String descripcion, String normativa, List<String> colaboradores) {
-        Propietario = propietario;
-        Nombre = nombre;
-        Descripcion = descripcion;
-        Normativa = normativa;
-        Colaboradores = colaboradores;
+        this.propietario = propietario;
+        this.nombre = nombre;
+        this.descripcion = descripcion;
+        this.normativa = normativa;
+        this.colaboradores = colaboradores;
     }
 
     public String getPropietario() {
-        return Propietario;
+        return propietario;
     }
 
     public String getNombre() {
-        return Nombre;
+        return nombre;
     }
 
     public String getDescripcion() {
-        return Descripcion;
+        return descripcion;
     }
 
     public String getNormativa() {
-        return Normativa;
+        return normativa;
     }
 
     public List<String> getColaboradores() {
-        return Colaboradores;
+        return colaboradores;
     }
 }

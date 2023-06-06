@@ -12,13 +12,16 @@
         android:theme="@style/Theme.ProTeam"
         tools:targetApi="31">
         <activity
+            android:name=".CrearEquipoActivity"
+            android:exported="false" />
+        <activity
             android:name=".RegistroActivity"
             android:exported="false" />
         <activity
             android:name=".EquiposActivity"
             android:exported="false"
             android:label="@string/title_activity_equipos"
-            android:theme="@style/Theme.ProTeam.NoActionBar"/>
+            android:theme="@style/Theme.ProTeam.NoActionBar" />
         <activity
             android:name=".LoginActivity"
             android:exported="true">

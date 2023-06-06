@@ -1,5 +1,6 @@
 package com.grupo2.proteam.ui.Equipos;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,6 +17,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.grupo2.proteam.CrearEquipoActivity;
 import com.grupo2.proteam.EquiposViewModel;
 import com.grupo2.proteam.FStore.Equipo;
 import com.grupo2.proteam.R;
@@ -27,9 +29,10 @@ import java.util.List;
 public class EquiposFragment extends Fragment {
 
     RecyclerView rvEquipos;
+    EquiposViewModel DataVM;
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        EquiposViewModel DataVM =
+        DataVM =
                 new ViewModelProvider(getActivity()).get(EquiposViewModel.class);
         View root = inflater.inflate(R.layout.fragment_equipos, container, false);
         rvEquipos = root.findViewById(R.id.frgEquipos_rvEquipos);
@@ -44,6 +47,12 @@ public class EquiposFragment extends Fragment {
 
 
         return root;
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        DataVM.ActualizarListaEquipos();
     }
 
     private void setLista(List<Equipo> lstEquipos)
@@ -62,6 +71,7 @@ public class EquiposFragment extends Fragment {
             @Override
             public void onClickAgregar() {
                 Toast.makeText(getContext(), "Agregando equipo", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(getActivity(), CrearEquipoActivity.class));
             }
         });
         rvEquipos.setAdapter(equiposAdaptador);
