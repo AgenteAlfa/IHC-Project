@@ -40,24 +40,13 @@
 
             <TextView
                 android:id="@+id/ListaEquipos_txtNombre"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingStart="8dp"
-                android:paddingTop="10dp"
-                android:paddingEnd="8dp"
-                android:textColor="@color/black"
-                android:textSize="24sp"
-                tools:text="Corporacion 123" />
+                tools:text="Corporacion 123"
+                style="@style/TextViewTitulo" />
 
             <TextView
                 android:id="@+id/ListaEquipos_txtDescripcion"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingStart="8dp"
-                android:paddingEnd="8dp"
-                android:paddingBottom="10dp"
-                android:textColor="@color/black_suave"
-                tools:text="Corporacion de testing" />
+                tools:text="Corporacion de testing"
+                style="@style/TextViewDescripcion" />
 
             <LinearLayout
                 android:layout_width="match_parent"

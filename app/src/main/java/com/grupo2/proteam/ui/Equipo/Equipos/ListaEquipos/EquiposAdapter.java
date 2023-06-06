@@ -1,4 +1,4 @@
-package com.grupo2.proteam.ui.Equipos.ListaEquipos;
+package com.grupo2.proteam.ui.Equipo.Equipos.ListaEquipos;
 
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -11,7 +11,6 @@ import com.grupo2.proteam.FStore.Equipo;
 import com.grupo2.proteam.R;
 
 import java.lang.ref.SoftReference;
-import java.lang.ref.WeakReference;
 import java.util.List;
 
 public class EquiposAdapter extends RecyclerView.Adapter<EquiposViewHolder> {

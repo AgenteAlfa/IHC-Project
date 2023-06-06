@@ -1,4 +1,4 @@
-package com.grupo2.proteam.ui.Datos;
+package com.grupo2.proteam.ui.Equipo.Datos;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;

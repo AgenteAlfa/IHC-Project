@@ -1,6 +1,5 @@
-package com.grupo2.proteam.ui.Equipos.ListaEquipos;
+package com.grupo2.proteam.ui.Equipo.Equipos.ListaEquipos;
 
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -14,7 +13,6 @@ import com.grupo2.proteam.FStore.Equipo;
 import com.grupo2.proteam.R;
 
 import java.lang.ref.SoftReference;
-import java.lang.ref.WeakReference;
 
 public class EquiposViewHolder extends RecyclerView.ViewHolder {
     private final TextView Nombre,Descripcion;

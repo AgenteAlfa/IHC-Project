@@ -1,4 +1,4 @@
-package com.grupo2.proteam.ui.Equipos.ListaEquipos;
+package com.grupo2.proteam.ui.Equipo.Equipos.ListaEquipos;
 
 import com.grupo2.proteam.FStore.Equipo;
 

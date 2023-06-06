@@ -15,12 +15,11 @@ import com.firebase.ui.auth.IdpResponse;
 import com.firebase.ui.auth.data.model.FirebaseAuthUIAuthenticationResult;
 import com.firebase.ui.auth.FirebaseAuthUIActivityResultContract;
 import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.grupo2.proteam.FStore.PrivadoUsuario;
+import com.grupo2.proteam.ui.Equipo.EquiposActivity;
 
 import java.util.Arrays;
 import java.util.List;

@@ -1,4 +1,4 @@
-package com.grupo2.proteam.ui.Datos;
+package com.grupo2.proteam.ui.Equipo.Datos;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

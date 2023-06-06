@@ -1,4 +1,4 @@
-package com.grupo2.proteam;
+package com.grupo2.proteam.ui.Equipo;
 
 import android.content.Intent;
 import android.widget.Toast;
@@ -44,6 +44,7 @@ public class EquiposViewModel extends ViewModel {
         consulta.get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
             @Override
             public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+                //queryDocumentSnapshots.getDocuments().get(0).get
                 List<Equipo> lstEquipos = queryDocumentSnapshots.toObjects(Equipo.class);
                 _lstEquipos.setValue(lstEquipos);
             }

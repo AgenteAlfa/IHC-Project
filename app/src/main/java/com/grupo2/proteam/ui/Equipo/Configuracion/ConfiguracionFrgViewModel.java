@@ -1,4 +1,4 @@
-package com.grupo2.proteam.ui.Configuracion;
+package com.grupo2.proteam.ui.Equipo.Configuracion;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;

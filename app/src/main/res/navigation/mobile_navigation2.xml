@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/mobile_navigation2"
+            app:startDestination="@+id/navigation_home">
+
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="com.grupo2.proteam.ui.Grupo.Grupos.GruposFragment"
+        android:label="@string/title_Grupos"
+        tools:layout="@layout/fragment_grupos" />
+
+    <fragment
+        android:id="@+id/navigation_dashboard"
+        android:name="com.grupo2.proteam.ui.Grupo.Info.InfoFragment"
+        android:label="@string/title_Info"
+        tools:layout="@layout/fragment_info" />
+
+    <fragment
+        android:id="@+id/navigation_notifications"
+        android:name="com.grupo2.proteam.ui.Grupo.Notificaciones.NotificacionesFragment"
+        android:label="@string/title_Eventos"
+        tools:layout="@layout/fragment_notificaciones" />
+
+    <fragment
+        android:id="@+id/navigation_perfil"
+        android:name="com.grupo2.proteam.ui.Grupo.Perfil.PerfilFragment"
+        android:label="@string/title_Perfil"
+        tools:layout="@layout/fragment_perfil" />
+</navigation>
