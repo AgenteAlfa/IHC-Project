@@ -40,7 +40,7 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_login);
         Button Iniciar = findViewById(R.id.Login_btnIniciar),
                 Cerrar = findViewById(R.id.Login_btnCerrarSesion);
         Iniciar.setOnClickListener(view -> createSignInIntent());

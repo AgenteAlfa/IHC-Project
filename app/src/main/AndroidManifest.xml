@@ -12,6 +12,9 @@
         android:theme="@style/Theme.ProTeam"
         tools:targetApi="31">
         <activity
+            android:name=".CrearGrupoActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.Equipo.EquipoActivity"
             android:exported="false"
             android:label="@string/title_activity_grupos" />
@@ -20,7 +23,7 @@
             android:exported="false" />
         <activity
             android:name=".RegistroActivity"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".ui.Sala.SalaActivity"
             android:exported="false"
