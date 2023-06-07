@@ -3,15 +3,18 @@ package com.grupo2.proteam.ui.Sala;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.TextView;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
+import com.grupo2.proteam.FStore.PrivadoUsuario;
 import com.grupo2.proteam.R;
 
 import androidx.appcompat.widget.Toolbar;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -41,6 +44,21 @@ public class SalaActivity extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
         DataVM = new ViewModelProvider(this).get(SalaViewModel.class);
+        TextView navNombre = navigationView.getHeaderView(0).findViewById(R.id.navheader_txtNombre),
+                navEmail = navigationView.getHeaderView(0).findViewById(R.id.navheader_txtCorreo);
+
+        DataVM.get_UsuarioInfo().observe(this, new Observer<PrivadoUsuario>() {
+            @Override
+            public void onChanged(PrivadoUsuario privadoUsuario) {
+                FirebaseAuth mAuth = FirebaseAuth.getInstance();
+                if (privadoUsuario != null)
+                {
+                    navNombre.setText(privadoUsuario.getNyA());
+                    navEmail.setText(mAuth.getCurrentUser().getEmail());
+                }
+
+            }
+        });
 
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.

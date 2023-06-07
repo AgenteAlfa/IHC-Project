@@ -70,8 +70,17 @@ public class EquiposFragment extends Fragment {
 
             @Override
             public void onClickAgregar() {
-                Toast.makeText(getContext(), "Agregando equipo", Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(getActivity(), CrearEquipoActivity.class));
+
+                //Ver si es admin
+                if (DataVM.get_UsuarioInfo().getValue().isAdmin())
+                {
+                    Toast.makeText(getContext(), "Agregando equipo", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(getActivity(), CrearEquipoActivity.class));
+                }
+                else
+                {
+                    Toast.makeText(getContext(), "Uniendose a un equipo", Toast.LENGTH_SHORT).show();
+                }
             }
         });
         rvEquipos.setAdapter(equiposAdaptador);

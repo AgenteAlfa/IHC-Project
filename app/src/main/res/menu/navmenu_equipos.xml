@@ -13,7 +13,7 @@
             android:id="@+id/navEquipos_itmSuscripcion"
             android:checkable="true"
             android:icon="@drawable/suscripcion"
-            android:title="@string/NavEquipos_Notificaciones" />
+            android:title="@string/NavEquipos_Suscripcion" />
         <item
             android:id="@+id/navEquipos_itmDatos"
             android:checkable="true"

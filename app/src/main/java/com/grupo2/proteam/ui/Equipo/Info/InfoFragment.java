@@ -43,7 +43,7 @@ public class InfoFragment extends Fragment {
             @Override
             public void onChanged(Codigo codigo) {
                 if (codigo != null)
-                Codigo.setText(codigo.getUuidEquipo());
+                    Codigo.setText(codigo.getUuidEquipo());
             }
         });
 

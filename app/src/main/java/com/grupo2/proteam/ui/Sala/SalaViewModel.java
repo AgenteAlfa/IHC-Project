@@ -14,23 +14,30 @@ import com.grupo2.proteam.FStore.EquipoData;
 import com.grupo2.proteam.FStore.PrivadoUsuario;
 
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 public class SalaViewModel extends ViewModel {
-    private PrivadoUsuario UsuarioInfo;
+    private final MutableLiveData<PrivadoUsuario> _UsuarioInfo;
     private final MutableLiveData<List<EquipoData>> _lstEquipos;
 
     public SalaViewModel() {
+        _lstEquipos = new MutableLiveData<>(new ArrayList<>());
+        _UsuarioInfo = new MutableLiveData<>(new PrivadoUsuario(false, new Date(), ""));
+
         FirebaseAuth mAuth = FirebaseAuth.getInstance();
         assert mAuth.getCurrentUser() != null;
         String uuid = mAuth.getCurrentUser().getUid();
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         db.collection("Usuarios").document(uuid).get().addOnSuccessListener(documentSnapshot -> {
-            UsuarioInfo = documentSnapshot.toObject(PrivadoUsuario.class);
+            PrivadoUsuario UsuarioInfo = documentSnapshot.toObject(PrivadoUsuario.class);
+            _UsuarioInfo.setValue(UsuarioInfo);
+            ActualizarListaEquipos();
         });
 
-        _lstEquipos = new MutableLiveData<>(new ArrayList<>());
-        ActualizarListaEquipos();
+
+
     }
 
     public void ActualizarListaEquipos()
@@ -39,26 +46,38 @@ public class SalaViewModel extends ViewModel {
         assert mAuth.getCurrentUser() != null;
         String uuid = mAuth.getCurrentUser().getUid();
         FirebaseFirestore db = FirebaseFirestore.getInstance();
-        Query consulta = db.collection("Equipos").whereEqualTo("propietario", uuid);
-        consulta.get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
-            @Override
-            public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
-                ArrayList<EquipoData> Arr =  new ArrayList<>();
-                for (DocumentSnapshot document : queryDocumentSnapshots.getDocuments()) {
-                    EquipoData equipoData = null;
-                    Equipo E = document.toObject(Equipo.class);
-                    if (E != null)
-                        equipoData = new EquipoData(E,document.getId()) ;
-                    Arr.add(equipoData);
+        Query consulta;
+        if (_UsuarioInfo.getValue().isAdmin())
+        {
+            consulta = db.collection("Equipos").whereEqualTo("propietario", uuid);
+        }
+        else
+        {
+            consulta = db.collection("Equipos").whereArrayContains("colaboradores", uuid);
+        }
 
-                }
-                _lstEquipos.setValue(Arr);
-            }
-        });
+        consulta.get().addOnSuccessListener(OSL_ListaEquipos);
+
     }
+    OnSuccessListener<QuerySnapshot> OSL_ListaEquipos = new OnSuccessListener<QuerySnapshot>() {
+        @Override
+        public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+            ArrayList<EquipoData> Arr =  new ArrayList<>();
+            for (DocumentSnapshot document : queryDocumentSnapshots.getDocuments()) {
+                EquipoData equipoData = null;
+                Equipo E = document.toObject(Equipo.class);
+                if (E != null)
+                    equipoData = new EquipoData(E,document.getId()) ;
+                Arr.add(equipoData);
 
-    public PrivadoUsuario getUsuarioInfo() {
-        return UsuarioInfo;
+            }
+            _lstEquipos.setValue(Arr);
+        }
+    };
+
+
+    public MutableLiveData<PrivadoUsuario> get_UsuarioInfo() {
+        return _UsuarioInfo;
     }
 
     public MutableLiveData<List<EquipoData>> get_lstEquipos() {
