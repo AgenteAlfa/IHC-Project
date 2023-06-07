@@ -19,7 +19,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.grupo2.proteam.FStore.PrivadoUsuario;
-import com.grupo2.proteam.ui.Equipo.EquiposActivity;
+import com.grupo2.proteam.ui.Sala.SalaActivity;
 
 import java.util.Arrays;
 import java.util.List;
@@ -69,7 +69,7 @@ public class LoginActivity extends AppCompatActivity {
                 }
                 else
                 {
-                    startActivity(new Intent(LoginActivity.this, EquiposActivity.class));
+                    startActivity(new Intent(LoginActivity.this, SalaActivity.class));
                 }
             }).addOnFailureListener(FalloGenerico);
 

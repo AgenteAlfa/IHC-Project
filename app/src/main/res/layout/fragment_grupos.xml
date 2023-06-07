@@ -6,15 +6,18 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     style="@style/Theme.ProTeam.ConstraintLayout"
-    tools:context=".ui.Grupo.Grupos.GruposFragment">
+    tools:context=".ui.Equipo.Grupos.GruposFragment">
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/frgGrupos_rvGrupos"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:listitem="@layout/rvitem_grupos" />
+        tools:listitem="@layout/rvitem_grupos">
+
+    </androidx.recyclerview.widget.RecyclerView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
