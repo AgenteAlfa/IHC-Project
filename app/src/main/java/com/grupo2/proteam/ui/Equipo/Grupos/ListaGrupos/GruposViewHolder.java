@@ -35,7 +35,7 @@ public class GruposViewHolder extends RecyclerView.ViewHolder{
         listenerGrupo = listener;
     }
 
-    public void Setear(GrupoData GrupoIesimo)
+    public void Setear(GrupoData GrupoIesimo, boolean isAdmin)
     {
 
         if (GrupoIesimo == null)
@@ -51,7 +51,11 @@ public class GruposViewHolder extends RecyclerView.ViewHolder{
             Nombre.setText(GrupoIesimo.getNombre());
             Descripcion.setText(GrupoIesimo.getDescripcion());
 
-            Accion.setOnClickListener(view -> listenerGrupo.get().onClickAdministrar(GrupoIesimo));
+            Accion.setText(isAdmin? "Administrar" : "Entrar");
+            if (isAdmin)
+                Accion.setOnClickListener(view -> listenerGrupo.get().onClickAdministrar(GrupoIesimo));
+            else
+                Accion.setOnClickListener(view -> listenerGrupo.get().onClickEntrar(GrupoIesimo));
         }
 
 

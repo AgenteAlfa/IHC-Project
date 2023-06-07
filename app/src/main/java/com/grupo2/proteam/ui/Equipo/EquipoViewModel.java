@@ -24,6 +24,7 @@ public class EquipoViewModel extends ViewModel {
     private final MutableLiveData<EquipoData> _EquipoData;
     private final MutableLiveData<List<GrupoData>> _lstGrupos;
     private final MutableLiveData<Codigo> _Codigo;
+    private final MutableLiveData<Boolean> _isAdmin;
     private DocumentReference DREquipo;
     public static final String TAG = "EquipoViewModel";
 
@@ -31,6 +32,7 @@ public class EquipoViewModel extends ViewModel {
         _EquipoData = new MutableLiveData<>();
         _lstGrupos = new MutableLiveData<>(new ArrayList<>());
         _Codigo = new MutableLiveData<>();
+        _isAdmin = new MutableLiveData<>();
 
     }
     public void BuscarCodigo()
@@ -104,10 +106,6 @@ public class EquipoViewModel extends ViewModel {
             }
         });
     }
-    public void VerCodigo()
-    {
-
-    }
 
     public MutableLiveData<EquipoData> get_EquipoData() {
         return _EquipoData;
@@ -119,5 +117,9 @@ public class EquipoViewModel extends ViewModel {
 
     public MutableLiveData<Codigo> get_Codigo() {
         return _Codigo;
+    }
+
+    public MutableLiveData<Boolean> get_isAdmin() {
+        return _isAdmin;
     }
 }

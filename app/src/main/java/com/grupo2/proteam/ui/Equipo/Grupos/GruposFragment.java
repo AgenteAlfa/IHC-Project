@@ -44,7 +44,7 @@ public class GruposFragment extends Fragment {
     }
     private void setLista(List<GrupoData> lstGrupos)
     {
-        GruposAdapter gruposAdapter = new GruposAdapter(lstGrupos, new itemGruposListener() {
+        GruposAdapter gruposAdapter = new GruposAdapter(lstGrupos, DataVM.get_isAdmin().getValue(), new itemGruposListener() {
             @Override
             public void onClickAdministrar(GrupoData G) {
 

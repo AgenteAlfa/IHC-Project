@@ -24,7 +24,9 @@ public class EquipoActivity extends AppCompatActivity {
         setContentView(R.layout.activity_equipo);
 
         String equipoID = getIntent().getStringExtra("IDEquipo");
+        boolean isAdmin = getIntent().getBooleanExtra("isAdmin",false);
         DataVM = new ViewModelProvider(this).get(EquipoViewModel.class);
+        DataVM.get_isAdmin().setValue(isAdmin);
         //Agregar observador de esquipo
 
         DataVM.SetEquipoID(equipoID);

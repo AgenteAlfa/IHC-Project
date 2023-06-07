@@ -12,6 +12,9 @@
         android:theme="@style/Theme.ProTeam"
         tools:targetApi="31">
         <activity
+            android:name=".UnirseEquipoActivity"
+            android:exported="false" />
+        <activity
             android:name=".CrearGrupoActivity"
             android:exported="false" />
         <activity

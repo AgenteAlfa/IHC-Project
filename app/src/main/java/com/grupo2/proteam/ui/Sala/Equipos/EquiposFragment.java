@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.grupo2.proteam.CrearEquipoActivity;
 import com.grupo2.proteam.FStore.EquipoData;
+import com.grupo2.proteam.UnirseEquipoActivity;
 import com.grupo2.proteam.ui.Sala.SalaViewModel;
 import com.grupo2.proteam.ui.Equipo.EquipoActivity;
 import com.grupo2.proteam.R;
@@ -65,6 +66,7 @@ public class EquiposFragment extends Fragment {
                 Toast.makeText(getContext(), "Entrar al grupo", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(getActivity(), EquipoActivity.class);
                 intent.putExtra("IDEquipo", e.getID());
+                intent.putExtra("isAdmin",DataVM.get_UsuarioInfo().getValue().isAdmin());
                 startActivity(intent);
             }
 
@@ -80,6 +82,7 @@ public class EquiposFragment extends Fragment {
                 else
                 {
                     Toast.makeText(getContext(), "Uniendose a un equipo", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(getActivity(), UnirseEquipoActivity.class));
                 }
             }
         });

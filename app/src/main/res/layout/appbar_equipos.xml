@@ -30,7 +30,7 @@
         android:layout_marginEnd="@dimen/fab_margin"
         android:layout_marginBottom="16dp"
         android:contentDescription="Ayuda"
-        app:backgroundTint="@color/azul_1"
+        app:backgroundTint="@color/amarillo_1"
         app:srcCompat="@drawable/voz" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
