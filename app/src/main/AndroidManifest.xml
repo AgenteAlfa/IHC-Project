@@ -12,23 +12,23 @@
         android:theme="@style/Theme.ProTeam"
         tools:targetApi="31">
         <activity
-            android:name=".UnirseEquipoActivity"
+            android:name=".Sala.UnirseEquipoActivity"
             android:exported="false" />
         <activity
-            android:name=".CrearGrupoActivity"
+            android:name=".Equipo.CrearGrupoActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.Equipo.EquipoActivity"
+            android:name=".Equipo.EquipoActivity"
             android:exported="false"
             android:label="@string/title_activity_grupos" />
         <activity
-            android:name=".CrearEquipoActivity"
+            android:name=".Sala.CrearEquipoActivity"
             android:exported="false" />
         <activity
-            android:name=".RegistroActivity"
+            android:name=".Registro.RegistroActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.Sala.SalaActivity"
+            android:name=".Sala.SalaActivity"
             android:exported="false"
             android:label="@string/title_activity_equipos"
             android:theme="@style/ProTeamNoActionBar" />

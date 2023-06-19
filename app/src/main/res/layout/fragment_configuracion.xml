@@ -5,7 +5,7 @@
     style="@style/Theme.ProTeam.ConstraintLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.Sala.Configuracion.ConfiguracionFragment">
+    tools:context=".Sala.Configuracion.ConfiguracionFragment">
 
     <Button
         android:id="@+id/frgConfiguracion_btnCerrarSesion"

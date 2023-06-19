@@ -5,7 +5,7 @@
     style="@style/Theme.ProTeam.ConstraintLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.Sala.Datos.DatosFragment">
+    tools:context=".Sala.Datos.DatosFragment">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"

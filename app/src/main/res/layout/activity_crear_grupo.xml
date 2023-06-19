@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     style="@style/Theme.ProTeam.ConstraintLayout"
-    tools:context=".CrearGrupoActivity">
+    tools:context=".Equipo.CrearGrupoActivity">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/CrearGrupo_cv2"

@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     style="@style/Theme.ProTeam.ConstraintLayout"
-    tools:context=".ui.Equipo.Grupos.GruposFragment">
+    tools:context=".Equipo.Grupos.GruposFragment">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/frgGrupos_rvGrupos"

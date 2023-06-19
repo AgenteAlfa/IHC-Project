@@ -19,7 +19,8 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.grupo2.proteam.FStore.PrivadoUsuario;
-import com.grupo2.proteam.ui.Sala.SalaActivity;
+import com.grupo2.proteam.Registro.RegistroActivity;
+import com.grupo2.proteam.Sala.SalaActivity;
 
 import java.util.Arrays;
 import java.util.List;

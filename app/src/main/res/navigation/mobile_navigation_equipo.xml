@@ -7,25 +7,25 @@
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="com.grupo2.proteam.ui.Equipo.Grupos.GruposFragment"
+        android:name="com.grupo2.proteam.Equipo.Grupos.GruposFragment"
         android:label="@string/title_Grupos"
         tools:layout="@layout/fragment_grupos" />
 
     <fragment
         android:id="@+id/navigation_dashboard"
-        android:name="com.grupo2.proteam.ui.Equipo.Info.InfoFragment"
+        android:name="com.grupo2.proteam.Equipo.Info.InfoFragment"
         android:label="@string/title_Info"
         tools:layout="@layout/fragment_info" />
 
     <fragment
         android:id="@+id/navigation_notifications"
-        android:name="com.grupo2.proteam.ui.Equipo.Eventos.EventosFragment"
+        android:name="com.grupo2.proteam.Equipo.Eventos.EventosFragment"
         android:label="@string/title_Eventos"
         tools:layout="@layout/fragment_eventos" />
 
     <fragment
         android:id="@+id/navigation_perfil"
-        android:name="com.grupo2.proteam.ui.Equipo.Perfil.PerfilFragment"
+        android:name="com.grupo2.proteam.Equipo.Perfil.PerfilFragment"
         android:label="@string/title_Perfil"
         tools:layout="@layout/fragment_perfil" />
 </navigation>

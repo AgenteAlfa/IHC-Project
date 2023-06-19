@@ -5,11 +5,38 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.Equipo.Info.InfoFragment"
+    tools:context=".Equipo.Info.InfoFragment"
     style="@style/Theme.ProTeam.ConstraintLayout">
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/cardView2"
+        android:id="@+id/frgInfo_cvNormativa2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="-10dp"
+        android:layout_marginEnd="16dp"
+        app:cardBackgroundColor="@color/gris_claro"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="6dp"
+        app:layout_constraintEnd_toEndOf="@+id/frgInfo_cvInfo"
+        app:layout_constraintStart_toStartOf="@+id/frgInfo_cvInfo"
+        app:layout_constraintTop_toBottomOf="@+id/frgInfo_cvNormativa1">
+
+        <TextView
+            android:id="@+id/frgInfo_txtNormativa"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:padding="8dp"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:textColor="@color/black"
+            tools:text="No Normativa" />
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/frgInfo_cvColaboradores2"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -21,13 +48,29 @@
         app:contentPadding="10dp"
         app:layout_constraintEnd_toEndOf="@+id/frgInfo_cvInfo"
         app:layout_constraintStart_toStartOf="@+id/frgInfo_cvInfo"
-        app:layout_constraintTop_toBottomOf="@+id/frgInfo_cvColaboradores">
+        app:layout_constraintTop_toBottomOf="@+id/frgInfo_cvColaboradores1">
 
         <ExpandableListView
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
+            android:id="@+id/frgInfo_lstColaboradores"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="50dp"
             android:scrollbars="horizontal"
-            tools:listitem="@layout/rvitem_grupos" />
+            android:visibility="visible"
+            tools:listitem="@layout/elstitem_colaboradorestitulo" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+            </LinearLayout>
+        </ScrollView>
 
         <TextView
             android:id="@+id/textView12"
@@ -37,7 +80,8 @@
             android:gravity="center"
             android:text="Sin colaboradores asignados"
             android:textColor="@color/black_suave"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:visibility="gone" />
 
     </androidx.cardview.widget.CardView>
 
@@ -128,7 +172,7 @@
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/frgInfo_cvColaboradores"
+        android:id="@+id/frgInfo_cvColaboradores1"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -137,7 +181,7 @@
         app:contentPadding="8dp"
         app:layout_constraintEnd_toEndOf="@+id/frgInfo_cvInfo"
         app:layout_constraintStart_toStartOf="@+id/frgInfo_cvInfo"
-        app:layout_constraintTop_toBottomOf="@+id/frgInfo_cvNormativa">
+        app:layout_constraintTop_toBottomOf="@+id/frgInfo_cvNormativa2">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -212,7 +256,7 @@
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/frgInfo_cvNormativa"
+        android:id="@+id/frgInfo_cvNormativa1"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -222,27 +266,15 @@
         app:layout_constraintStart_toStartOf="@+id/frgInfo_cvInfo"
         app:layout_constraintTop_toBottomOf="@+id/frgInfo_cvInfo">
 
-        <LinearLayout
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:background="@color/azul_1"
+            android:padding="8dp"
+            android:text="Normativa"
+            android:textColor="@color/white"
+            android:textStyle="bold" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@color/azul_1"
-                android:padding="8dp"
-                android:text="Normativa"
-                android:textColor="@color/white"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/frgInfo_txtNormativa"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="16dp"
-                android:text="No declarada" />
-        </LinearLayout>
     </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

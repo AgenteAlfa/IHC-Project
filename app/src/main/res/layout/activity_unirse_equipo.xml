@@ -5,7 +5,7 @@
                                                    android:layout_width="match_parent"
                                                    android:layout_height="match_parent"
                                                    style="@style/Theme.ProTeam.ConstraintLayout"
-                                                   tools:context=".UnirseEquipoActivity">
+                                                   tools:context=".Sala.UnirseEquipoActivity">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
