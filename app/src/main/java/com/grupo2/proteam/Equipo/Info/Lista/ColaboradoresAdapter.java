@@ -45,9 +45,9 @@ public class ColaboradoresAdapter extends BaseExpandableListAdapter {
             convertView = layoutInflater.inflate(R.layout.list_item, null);
             */
             }
-            TextView txtNyaColaborador = convertView .findViewById(R.id.subItem_txtNyaColaborador);
+            TextView txtNyaColaborador = convertView .findViewById(R.id.subItemColaboradores_txtNyaColaborador);
             txtNyaColaborador.setText(NombreSubItem_Colaborador);
-            Button Eliminar = convertView.findViewById(R.id.subItem_btnEliminar);
+            Button Eliminar = convertView.findViewById(R.id.subItemColaboradores_btnEliminar);
 
             Eliminar.setOnClickListener(null);
 
@@ -86,9 +86,9 @@ public class ColaboradoresAdapter extends BaseExpandableListAdapter {
             */
                 convertView = LayoutInflater.from(parent.getContext()).inflate(R.layout.elstitem_colaboradorestitulo,parent, false);
             }
-            TextView TituloItem = convertView.findViewById(R.id.item_txtDeporte);
+            TextView TituloItem = convertView.findViewById(R.id.itemColaboradores_txtDeporte);
             TituloItem.setTypeface(null, Typeface.BOLD);
-            String titulo = "Hay " + Colaboradores.size() + " registrados";
+            String titulo = "Hay " + Colaboradores.size() + " colaboradores registrados";
             TituloItem.setText(titulo);
             return convertView;
         }

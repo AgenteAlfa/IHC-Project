@@ -5,6 +5,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ExpandableListView;
+import android.widget.LinearLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -56,7 +58,7 @@ public class InfoFragment extends Fragment {
         });
 
         lstColaboradores = root.findViewById(R.id.frgInfo_lstColaboradores);
-        CardView cvColaboradores = root.findViewById(R.id.frgInfo_cvColaboradores2);
+        LinearLayout ContenedorColaboradores = root.findViewById(R.id.frgInfo_lyContenedorLst);
         DataVM.get_Colaboradores().observe(getViewLifecycleOwner(), new Observer<List<PrivadoUsuario>>() {
             @Override
             public void onChanged(List<PrivadoUsuario> privadoUsuarios) {
@@ -65,7 +67,10 @@ public class InfoFragment extends Fragment {
                 lstColaboradores.setOnGroupExpandListener(new ExpandableListView.OnGroupExpandListener() {
                     @Override
                     public void onGroupExpand(int i) {
-                        cvColaboradores.invalidate();
+                        int h = lstColaboradores.getHeight();
+                        ViewGroup.LayoutParams params = ContenedorColaboradores.getLayoutParams();
+                        params.height = h;
+                        ContenedorColaboradores.setLayoutParams(params);
                     }
                 });
             }

@@ -1,5 +1,6 @@
 package com.grupo2.proteam.Equipo.Grupos;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +12,7 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.grupo2.proteam.Equipo.CrearGrupoActivity;
 import com.grupo2.proteam.Equipo.Grupos.ListaGrupos.GruposAdapter;
 import com.grupo2.proteam.Equipo.Grupos.ListaGrupos.itemGruposListener;
 import com.grupo2.proteam.FStore.GrupoData;
@@ -54,7 +56,7 @@ public class GruposFragment extends Fragment {
 
             @Override
             public void onClickAgregar() {
-
+                startActivity(new Intent(getActivity(), CrearGrupoActivity.class));
             }
         });
         rvGrupos.setAdapter(gruposAdapter);
