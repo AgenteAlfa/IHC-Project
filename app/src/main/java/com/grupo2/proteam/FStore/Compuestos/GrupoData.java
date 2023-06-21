@@ -1,6 +1,8 @@
-package com.grupo2.proteam.FStore;
+package com.grupo2.proteam.FStore.Compuestos;
 
-public class GrupoData extends Grupo{
+import com.grupo2.proteam.FStore.Grupo;
+
+public class GrupoData extends Grupo {
     String ID;
 
     public GrupoData(Grupo G, String ID) {

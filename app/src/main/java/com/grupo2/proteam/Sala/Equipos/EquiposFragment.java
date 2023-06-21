@@ -17,7 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.grupo2.proteam.Sala.Equipos.ListaEquipos.EquiposAdapter;
 import com.grupo2.proteam.Sala.SalaViewModel;
 import com.grupo2.proteam.Sala.CrearEquipoActivity;
-import com.grupo2.proteam.FStore.EquipoData;
+import com.grupo2.proteam.FStore.Compuestos.EquipoData;
 import com.grupo2.proteam.Sala.UnirseEquipoActivity;
 import com.grupo2.proteam.Equipo.EquipoActivity;
 import com.grupo2.proteam.R;

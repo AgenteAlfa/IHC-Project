@@ -6,19 +6,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ExpandableListView;
 import android.widget.LinearLayout;
-import android.widget.ScrollView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.grupo2.proteam.Equipo.Info.Lista.ColaboradoresAdapter;
 import com.grupo2.proteam.FStore.Codigo;
-import com.grupo2.proteam.FStore.EquipoData;
+import com.grupo2.proteam.FStore.Compuestos.EquipoData;
 import com.grupo2.proteam.FStore.PrivadoUsuario;
 import com.grupo2.proteam.R;
 import com.grupo2.proteam.Equipo.EquipoViewModel;

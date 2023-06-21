@@ -20,7 +20,7 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
-    <include layout="@layout/fragmentcontenedor_equipos" />
+    <include layout="@layout/fragment_contenedor_equipos" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/abEquipos_fabAyuda"

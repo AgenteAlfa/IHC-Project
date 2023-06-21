@@ -15,7 +15,7 @@
             android:name=".Sala.UnirseEquipoActivity"
             android:exported="false" />
         <activity
-            android:name=".Equipo.CrearGrupoActivity"
+            android:name=".CrearGrupo.CrearGrupoActivity"
             android:exported="false" />
         <activity
             android:name=".Equipo.EquipoActivity"

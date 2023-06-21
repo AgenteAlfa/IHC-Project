@@ -10,11 +10,10 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.grupo2.proteam.FStore.Equipo;
-import com.grupo2.proteam.FStore.EquipoData;
+import com.grupo2.proteam.FStore.Compuestos.EquipoData;
 import com.grupo2.proteam.FStore.PrivadoUsuario;
 
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 

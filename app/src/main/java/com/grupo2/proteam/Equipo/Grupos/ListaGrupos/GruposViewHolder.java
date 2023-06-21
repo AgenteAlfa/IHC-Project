@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.grupo2.proteam.FStore.GrupoData;
+import com.grupo2.proteam.FStore.Compuestos.GrupoData;
 import com.grupo2.proteam.R;
 
 import java.lang.ref.SoftReference;

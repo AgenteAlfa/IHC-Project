@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.grupo2.proteam.FStore.GrupoData;
+import com.grupo2.proteam.FStore.Compuestos.GrupoData;
 import com.grupo2.proteam.R;
 
 import java.lang.ref.SoftReference;

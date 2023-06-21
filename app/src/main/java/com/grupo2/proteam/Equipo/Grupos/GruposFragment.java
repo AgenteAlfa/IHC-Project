@@ -12,10 +12,10 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.grupo2.proteam.Equipo.CrearGrupoActivity;
+import com.grupo2.proteam.CrearGrupo.CrearGrupoActivity;
 import com.grupo2.proteam.Equipo.Grupos.ListaGrupos.GruposAdapter;
 import com.grupo2.proteam.Equipo.Grupos.ListaGrupos.itemGruposListener;
-import com.grupo2.proteam.FStore.GrupoData;
+import com.grupo2.proteam.FStore.Compuestos.GrupoData;
 import com.grupo2.proteam.R;
 import com.grupo2.proteam.Equipo.EquipoViewModel;
 
@@ -56,7 +56,9 @@ public class GruposFragment extends Fragment {
 
             @Override
             public void onClickAgregar() {
-                startActivity(new Intent(getActivity(), CrearGrupoActivity.class));
+                Intent I = new Intent(getActivity(), CrearGrupoActivity.class);
+                I.putExtra("IDEquipo",DataVM.get_EquipoData().getValue().getID());
+                startActivity(I);
             }
         });
         rvGrupos.setAdapter(gruposAdapter);

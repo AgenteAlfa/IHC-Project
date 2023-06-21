@@ -1,13 +1,11 @@
 package com.grupo2.proteam.Equipo;
 
 import android.util.Log;
-import android.widget.Toast;
 
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FieldPath;
@@ -15,9 +13,9 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.grupo2.proteam.FStore.Codigo;
 import com.grupo2.proteam.FStore.Equipo;
-import com.grupo2.proteam.FStore.EquipoData;
+import com.grupo2.proteam.FStore.Compuestos.EquipoData;
 import com.grupo2.proteam.FStore.Grupo;
-import com.grupo2.proteam.FStore.GrupoData;
+import com.grupo2.proteam.FStore.Compuestos.GrupoData;
 import com.grupo2.proteam.FStore.PrivadoUsuario;
 
 import java.util.ArrayList;
