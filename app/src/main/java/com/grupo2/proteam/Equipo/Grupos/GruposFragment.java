@@ -41,6 +41,13 @@ public class GruposFragment extends Fragment {
 
         return root;
     }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        DataVM.ActualizarListaGrupos();
+    }
+
     private void setLista(List<GrupoData> lstGrupos)
     {
         GruposAdapter gruposAdapter = new GruposAdapter(lstGrupos, DataVM.get_isAdmin().getValue(), new itemGruposListener() {

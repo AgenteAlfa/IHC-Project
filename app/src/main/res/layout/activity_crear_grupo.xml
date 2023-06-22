@@ -92,7 +92,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
-        android:id="@+id/CrearGrupo_Crear"
+        android:id="@+id/CrearGrupo_btnCrear"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="24dp"
@@ -120,7 +120,7 @@
         android:layout_height="0dp"
         android:layout_marginTop="16dp"
         android:layout_marginBottom="24dp"
-        app:layout_constraintBottom_toTopOf="@+id/CrearGrupo_Crear"
+        app:layout_constraintBottom_toTopOf="@+id/CrearGrupo_btnCrear"
         app:layout_constraintEnd_toEndOf="@+id/CrearGrupo_cv1"
         app:layout_constraintStart_toStartOf="@+id/CrearGrupo_cv1"
         app:layout_constraintTop_toBottomOf="@+id/CrearGrupo_cv2"

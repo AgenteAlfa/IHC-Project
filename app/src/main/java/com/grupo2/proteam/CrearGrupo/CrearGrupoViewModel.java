@@ -10,6 +10,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.grupo2.proteam.FStore.Compuestos.UsuarioData;
 import com.grupo2.proteam.FStore.Equipo;
 import com.grupo2.proteam.FStore.Compuestos.EquipoData;
+import com.grupo2.proteam.FStore.Grupo;
 import com.grupo2.proteam.FStore.PrivadoUsuario;
 
 import java.util.ArrayList;
@@ -75,15 +76,38 @@ public class CrearGrupoViewModel extends ViewModel {
         assert patron != null;
         for (UsuarioData usuario : colabs) {
             if (usuario.getNyA().toLowerCase().contains(patron.toLowerCase()))
-                res.add(usuario);
+                if (!_ColaboradoresSelectos.getValue().contains(usuario))
+                    res.add(usuario);
         }
         _ResultadosBusqueda.setValue(res);
     }
 
     public void GuardarColaboradoresMarcados()
     {
-        _ColaboradoresSelectos.setValue(_ColaboradoresMarcados.getValue());
+        List<UsuarioData> marcados = _ColaboradoresMarcados.getValue();
+        List<UsuarioData> selectos = _ColaboradoresSelectos.getValue();
+        for (UsuarioData marcado : marcados) {
+            if(!selectos.contains(marcado))
+                selectos.add(marcado);
+        }
+
+        _ColaboradoresSelectos.setValue(selectos);
         _ColaboradoresMarcados.setValue(new ArrayList<>());
+    }
+
+    public Grupo CrearGrupo(String Nombre, String Descripcion)
+    {
+        List<UsuarioData> selectos = _ColaboradoresSelectos.getValue();
+        List<String> supervisores = new ArrayList<>(),
+                trabajadores = new ArrayList<>();
+        for (UsuarioData selecto : selectos) {
+            if (selecto.isSupervisor())
+                supervisores.add(selecto.getID());
+            else
+                trabajadores.add(selecto.getID());
+        }
+        Grupo G = new Grupo(Nombre, Descripcion, trabajadores, supervisores);
+        return G;
     }
 
 
