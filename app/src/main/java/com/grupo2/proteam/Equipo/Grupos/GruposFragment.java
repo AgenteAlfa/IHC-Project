@@ -16,6 +16,7 @@ import com.grupo2.proteam.CrearGrupo.CrearGrupoActivity;
 import com.grupo2.proteam.Equipo.Grupos.ListaGrupos.GruposAdapter;
 import com.grupo2.proteam.Equipo.Grupos.ListaGrupos.itemGruposListener;
 import com.grupo2.proteam.FStore.Compuestos.GrupoData;
+import com.grupo2.proteam.GrupoTrabajador.GrupoTrabajadorActivity;
 import com.grupo2.proteam.R;
 import com.grupo2.proteam.Equipo.EquipoViewModel;
 
@@ -58,7 +59,8 @@ public class GruposFragment extends Fragment {
 
             @Override
             public void onClickEntrar(GrupoData G) {
-
+                Intent I = new Intent(getActivity(), GrupoTrabajadorActivity.class);
+                startActivity(I);
             }
 
             @Override

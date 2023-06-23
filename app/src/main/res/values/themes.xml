@@ -35,7 +35,6 @@
     </style>
 
 
-
     <style name="FirebaseUIProTeam" parent="FirebaseUI">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
@@ -82,8 +81,10 @@
 
     <style name="Theme.ProTeam.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
-
-
+    <style name="Theme.ProTeam.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
 
 
 </resources>
