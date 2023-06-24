@@ -8,12 +8,12 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
-import com.grupo2.proteam.GrupoTrabajador.PageViewModel;
+import com.grupo2.proteam.GrupoTrabajador.GrupoTrabajadorViewModel;
 import com.grupo2.proteam.R;
 
 
 public class InfoFragment extends Fragment {
-    private PageViewModel pageViewModel;
+    private GrupoTrabajadorViewModel pageViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {

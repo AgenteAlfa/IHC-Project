@@ -60,6 +60,8 @@ public class GruposFragment extends Fragment {
             @Override
             public void onClickEntrar(GrupoData G) {
                 Intent I = new Intent(getActivity(), GrupoTrabajadorActivity.class);
+                I.putExtra("IDEquipo",DataVM.get_EquipoData().getValue().getID());
+                I.putExtra("IDGrupo",G.getID());
                 startActivity(I);
             }
 

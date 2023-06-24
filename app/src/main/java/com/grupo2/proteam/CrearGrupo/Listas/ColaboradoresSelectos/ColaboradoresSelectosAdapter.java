@@ -20,7 +20,7 @@ import java.util.List;
 public class ColaboradoresSelectosAdapter extends RecyclerView.Adapter<ColaboradoresSelectosViewHolder>{
     private final List<UsuarioData> localDataSet;
     private SoftReference<itemColaboradoresSelectosListener> listenerSelectos;
-    public static final String TAG = "GruposAdapter";
+    public static final String TAG = "MisionesAdapter";
 
     public ColaboradoresSelectosAdapter(List<UsuarioData> dataSet, itemColaboradoresSelectosListener listener) {
         localDataSet = dataSet;
