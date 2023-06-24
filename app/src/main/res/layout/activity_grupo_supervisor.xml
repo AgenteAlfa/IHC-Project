@@ -4,7 +4,7 @@
                                                      xmlns:tools="http://schemas.android.com/tools"
                                                      android:layout_width="match_parent"
                                                      android:layout_height="match_parent"
-                                                     tools:context=".GrupoTrabajador.GrupoTrabajadorActivity">
+                                                     tools:context=".GrupoSupervisor.GrupoSupervisorActivity">
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
@@ -21,23 +21,23 @@
             android:padding="@dimen/appbar_padding"
             android:text="@string/app_name"
             android:textAppearance="@style/TextAppearance.Widget.AppCompat.Toolbar.Title"
-            android:textColor="@color/white" />
+            android:textColor="@color/white"/>
 
         <com.google.android.material.tabs.TabLayout
-            android:id="@+id/GrupoTrabajador_TabLayout"
+            android:id="@+id/GrupoSupervisor_TabLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:contentDescription="Tabs de misiones" />
+            android:contentDescription="Tabs de misiones"
+            app:tabMode="scrollable" />
     </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.viewpager2.widget.ViewPager2
-        android:id="@+id/GrupoTrabajador_ViewPager"
+        android:id="@+id/GrupoSupervisor_ViewPager"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
+        android:layout_height="match_parent" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/GrupoTrabajador_fabAyuda"
+        android:id="@+id/GrupoSupervisor_fabAyuda"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
@@ -47,6 +47,5 @@
         android:contentDescription="Boton de ayuda"
         app:backgroundTint="@color/amarillo_1"
         app:srcCompat="@drawable/voz" />
-
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

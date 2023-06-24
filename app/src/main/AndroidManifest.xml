@@ -12,6 +12,11 @@
         android:theme="@style/Theme.ProTeam"
         tools:targetApi="31">
         <activity
+            android:name=".GrupoSupervisor.GrupoSupervisorActivity"
+            android:exported="false"
+            android:label="@string/title_activity_grupo_supervisor"
+            android:theme="@style/Theme.ProTeam.NoActionBar" />
+        <activity
             android:name=".GrupoTrabajador.GrupoTrabajadorActivity"
             android:exported="false"
             android:label="@string/title_activity_grupo_trabajador"

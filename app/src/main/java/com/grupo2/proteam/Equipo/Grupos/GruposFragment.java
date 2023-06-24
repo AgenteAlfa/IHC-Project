@@ -16,6 +16,7 @@ import com.grupo2.proteam.CrearGrupo.CrearGrupoActivity;
 import com.grupo2.proteam.Equipo.Grupos.ListaGrupos.GruposAdapter;
 import com.grupo2.proteam.Equipo.Grupos.ListaGrupos.itemGruposListener;
 import com.grupo2.proteam.FStore.Compuestos.GrupoData;
+import com.grupo2.proteam.GrupoSupervisor.GrupoSupervisorActivity;
 import com.grupo2.proteam.GrupoTrabajador.GrupoTrabajadorActivity;
 import com.grupo2.proteam.R;
 import com.grupo2.proteam.Equipo.EquipoViewModel;
@@ -54,7 +55,10 @@ public class GruposFragment extends Fragment {
         GruposAdapter gruposAdapter = new GruposAdapter(lstGrupos, DataVM.get_isAdmin().getValue(), new itemGruposListener() {
             @Override
             public void onClickAdministrar(GrupoData G) {
-
+                Intent I = new Intent(getActivity(), GrupoSupervisorActivity.class);
+                I.putExtra("IDEquipo",DataVM.get_EquipoData().getValue().getID());
+                I.putExtra("IDGrupo",G.getID());
+                startActivity(I);
             }
 
             @Override
