@@ -21,8 +21,10 @@ import com.grupo2.proteam.FStore.Equipo;
 import com.grupo2.proteam.FStore.Grupo;
 import com.grupo2.proteam.FStore.Mision;
 import com.grupo2.proteam.FStore.PrivadoUsuario;
+import com.grupo2.proteam.FStore.Solicitud;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
@@ -68,7 +70,7 @@ public class GrupoTrabajadorViewModel extends ViewModel {
     }
     public void ActualizarMisiones()
     {
-        DRGrupo.collection("Misiones").get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+        CRMisiones.get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
             @Override
             public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
                 List<MisionData> lstMisiones = new ArrayList<>();
@@ -96,6 +98,17 @@ public class GrupoTrabajadorViewModel extends ViewModel {
         });
     }
 
+    public void AgregarSolicitud(MisionData misionData, PostListener postListener)
+    {
+        Solicitud S = new Solicitud(new Date(), misionData.getID());
+        CRSolicitudes.document(misionData.getID()).set(S).addOnSuccessListener(new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void unused) {
+                misionData.setStatus("Solicitud Enviada");
+                postListener.post();
+            }
+        });
+    }
 
     public void ActualizarListaColaboradores(PostListener postListener)
     {
@@ -116,7 +129,7 @@ public class GrupoTrabajadorViewModel extends ViewModel {
             }
         });
     }
-    private interface PostListener
+    public interface PostListener
     {
         void post();
     }

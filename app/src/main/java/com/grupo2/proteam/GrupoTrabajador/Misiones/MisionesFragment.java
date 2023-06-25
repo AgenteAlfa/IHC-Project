@@ -44,7 +44,15 @@ public class MisionesFragment extends Fragment {
         MisionesAdapter MAdapter = new MisionesAdapter(misionData, new itemMisionesListener() {
             @Override
             public void onClickTerminar(MisionData M) {
-                Toast.makeText(getContext(), "Terminar mision", Toast.LENGTH_SHORT).show();
+                DataVM.AgregarSolicitud(M, new GrupoTrabajadorViewModel.PostListener() {
+                    @Override
+                    public void post() {
+                        Toast.makeText(getContext(), "Solicitud para terminar mision enviada", Toast.LENGTH_SHORT).show();
+                        ListaMisiones.getAdapter().notifyDataSetChanged();
+                    }
+                });
+
+
             }
         });
         ListaMisiones.setAdapter(MAdapter);

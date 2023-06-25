@@ -28,4 +28,8 @@ public class MisionData extends Mision {
     public List<UsuarioData> getIntegrantes() {
         return Integrantes;
     }
+
+    public void setStatus(String status) {
+        Status = status;
+    }
 }
