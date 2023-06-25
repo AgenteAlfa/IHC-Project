@@ -13,6 +13,7 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.grupo2.proteam.CrearGrupo.DFColaboradores;
 import com.grupo2.proteam.FStore.Compuestos.MisionData;
 import com.grupo2.proteam.GrupoSupervisor.GrupoSupervisorViewModel;
 import com.grupo2.proteam.GrupoSupervisor.Misiones.ListaMisiones.SMisionesAdapter;
@@ -46,6 +47,17 @@ public class SMisionesFragment extends Fragment {
             @Override
             public void onClickEliminar(MisionData M) {
                 Toast.makeText(getContext(), "Mision Eliminada", Toast.LENGTH_SHORT).show();
+                DataVM.EliminarMision(M, new GrupoSupervisorViewModel.PostListener() {
+                    @Override
+                    public void post() {
+                        DataVM.ActualizarMisiones();
+                    }
+                });
+            }
+
+            @Override
+            public void onClickAgregar() {
+                new DFCrearMision().show(getActivity().getSupportFragmentManager(),"");
             }
         });
         ListaMisiones.setAdapter(MAdapter);

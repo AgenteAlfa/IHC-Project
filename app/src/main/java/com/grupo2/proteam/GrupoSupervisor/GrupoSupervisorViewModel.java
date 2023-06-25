@@ -68,9 +68,17 @@ public class GrupoSupervisorViewModel extends ViewModel {
         });
 
     }
+    public void CrearMision(Mision M, PostListener postListener)
+    {
+        CRMisiones.add(M).addOnSuccessListener(documentReference -> postListener.post());
+    }
+    public void EliminarMision(MisionData M, PostListener postListener)
+    {
+        CRMisiones.document(M.getID()).delete().addOnSuccessListener(unused -> postListener.post());
+    }
     public void ActualizarMisiones()
     {
-        DRGrupo.collection("Misiones").get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+        CRMisiones.get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
             @Override
             public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
                 List<MisionData> lstMisiones = new ArrayList<>();
@@ -99,6 +107,8 @@ public class GrupoSupervisorViewModel extends ViewModel {
     }
 
 
+
+
     public void ActualizarListaColaboradores(PostListener postListener)
     {
         FirebaseFirestore db = FirebaseFirestore.getInstance();
@@ -118,7 +128,7 @@ public class GrupoSupervisorViewModel extends ViewModel {
             }
         });
     }
-    private interface PostListener
+    public interface PostListener
     {
         void post();
     }

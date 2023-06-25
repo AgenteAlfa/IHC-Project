@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                                   xmlns:app="http://schemas.android.com/apk/res-auto"
+                                                   xmlns:tools="http://schemas.android.com/tools"
+                                                   style="@style/Theme.ProTeam.ConstraintLayout"
+                                                   android:layout_width="match_parent"
+                                                   android:layout_height="wrap_content">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/DialogCrearMision_cv3"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginEnd="16dp"
+        app:cardBackgroundColor="@color/verde_1"
+        app:cardCornerRadius="10dp"
+        app:layout_constraintBottom_toBottomOf="@+id/DialogCrearMision_tilPuntaje"
+        app:layout_constraintEnd_toEndOf="@+id/DialogCrearMision_cv1"
+        app:layout_constraintTop_toTopOf="@+id/DialogCrearMision_tilPuntaje">
+
+        <TextView
+            android:id="@+id/DialogCrearMision_txtTipo"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:ems="6"
+            android:gravity="center"
+            android:padding="4dp"
+            android:text="Individual"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            tools:visibility="visible" />
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/DialogCrearMision_cv2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:cardCornerRadius="10dp"
+        app:layout_constraintStart_toStartOf="@+id/DialogCrearMision_cv1"
+        app:layout_constraintTop_toBottomOf="@+id/DialogCrearMision_tilPuntaje">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="8dp"
+            android:text="Integrantes"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            tools:visibility="visible" />
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/DialogCrearMision_cv1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="24dp"
+        app:cardCornerRadius="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="16dp"
+            android:text="Crear mision"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            tools:visibility="visible" />
+
+    </androidx.cardview.widget.CardView>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/DialogCrearMision_tilNombre"
+        style="@style/ProTeamInputLayoutStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:hint="Titulo de la mision"
+        android:textColorHint="@color/azul_2"
+        app:layout_constraintEnd_toEndOf="@+id/DialogCrearMision_cv1"
+        app:layout_constraintStart_toStartOf="@+id/DialogCrearMision_cv1"
+        app:layout_constraintTop_toBottomOf="@+id/DialogCrearMision_cv1">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/DialogCrearMision_tilDescripcion"
+        style="@style/ProTeamInputLayoutStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:hint="Descripcion"
+        android:textColorHint="@color/azul_2"
+        app:layout_constraintEnd_toEndOf="@+id/DialogCrearMision_cv1"
+        app:layout_constraintStart_toStartOf="@+id/DialogCrearMision_cv1"
+        app:layout_constraintTop_toBottomOf="@+id/DialogCrearMision_tilNombre">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/DialogCrearMision_tilPuntaje"
+        style="@style/ProTeamInputLayoutStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:hint="Puntaje"
+        android:textColorHint="@color/azul_2"
+        app:layout_constraintEnd_toStartOf="@+id/DialogCrearMision_cv3"
+        app:layout_constraintStart_toStartOf="@+id/DialogCrearMision_cv1"
+        app:layout_constraintTop_toBottomOf="@+id/DialogCrearMision_tilDescripcion">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/DialogCrearMision_btnCrear"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:layout_weight="1"
+        android:text="Crear mision"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/DialogCrearMision_btnAgregar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:backgroundTint="@color/azul_1"
+        android:text="Agregar"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/DialogCrearMision_cv2"
+        app:layout_constraintEnd_toEndOf="@+id/DialogCrearMision_cv1"
+        app:layout_constraintTop_toTopOf="@+id/DialogCrearMision_cv2" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/DialogCrearMision_rvColaboradores"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="24dp"
+        app:layout_constraintBottom_toTopOf="@+id/DialogCrearMision_btnCrear"
+        app:layout_constraintEnd_toEndOf="@+id/DialogCrearMision_cv1"
+        app:layout_constraintStart_toStartOf="@+id/DialogCrearMision_cv1"
+        app:layout_constraintTop_toBottomOf="@+id/DialogCrearMision_cv2"
+        tools:itemCount="2"
+        tools:listitem="@layout/rvitem_addcolaboradores">
+
+    </androidx.recyclerview.widget.RecyclerView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -42,15 +42,15 @@ public class SMisionesViewHolder extends RecyclerView.ViewHolder{
         Agregar = view.findViewById(R.id.ListaSupervisorMision_fabAgregar);
         Item = view.findViewById(R.id.ListaSupervisorMision_lyItem);
 
-
-
         listenerGrupo = listener;
+
+        Agregar.setOnClickListener(view1 -> listenerGrupo.get().onClickAgregar());
     }
 
     private void SetTipo(boolean b)
     {
-        Divider.setVisibility(b? View.VISIBLE : View.GONE);
-        Integrantes.setVisibility(b? View.VISIBLE : View.GONE);
+        //Divider.setVisibility(b? View.VISIBLE : View.GONE);
+        //Integrantes.setVisibility(b? View.VISIBLE : View.GONE);
         Tipo.setText(b? "G" : "I");
         cvTipo.setCardBackgroundColor(
                 ContextCompat.getColor(cvTipo.getContext(),b? R.color.amarillo_1 : R.color.verde_1));
@@ -59,7 +59,7 @@ public class SMisionesViewHolder extends RecyclerView.ViewHolder{
     private void SetIntegrantes(List<UsuarioData> colaboradores)
     {
         StringBuilder builder = new StringBuilder();
-        for (int i = 0; i < colaboradores.size() - 1; i++) {
+        for (int i = 0; i < colaboradores.size(); i++) {
             UsuarioData colaborador = colaboradores.get(i);
             builder.append(colaborador.getNyA());
             if (i < colaboradores.size() - 2)
@@ -68,7 +68,7 @@ public class SMisionesViewHolder extends RecyclerView.ViewHolder{
                 builder.append(" y ");
 
         }
-        Integrantes.setText("Varios integrantes");
+        Integrantes.setText(builder.toString());
     }
 
 
