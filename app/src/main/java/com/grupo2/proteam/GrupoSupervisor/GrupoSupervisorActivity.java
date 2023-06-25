@@ -22,7 +22,8 @@ public class GrupoSupervisorActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_grupo_supervisor);
         DataVM = new ViewModelProvider(this).get(GrupoSupervisorViewModel.class);
-
+        DataVM.Inicializar(getIntent().getStringExtra("IDEquipo"),
+                getIntent().getStringExtra("IDGrupo"));
 
         SAdaptadorTabs adapter = new SAdaptadorTabs(getSupportFragmentManager(),getLifecycle());
         ViewPager2 viewPager = findViewById(R.id.GrupoSupervisor_ViewPager);
@@ -55,6 +56,6 @@ public class GrupoSupervisorActivity extends AppCompatActivity {
                     break;
             }
         }).attach();
-        FloatingActionButton fab = findViewById(R.id.GrupoTrabajador_fabAyuda);
+        FloatingActionButton fab = findViewById(R.id.GrupoSupervisor_fabAyuda);
     }
 }

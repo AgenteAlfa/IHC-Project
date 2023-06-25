@@ -5,5 +5,15 @@
                                                    android:id="@+id/constraintLayout"
                                                    android:layout_width="match_parent"
                                                    android:layout_height="match_parent"
-                                                   tools:context=".GrupoSupervisor.PlaceholderFragment"
-    style="@style/Theme.ProTeam.ConstraintLayout"/>
+                                                   tools:context=".GrupoSupervisor.Misiones.SMisionesFragment"
+    style="@style/Theme.ProTeam.ConstraintLayout">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/frgGrupoSupervisor_ListaMisiones"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:listitem="@layout/rvitem_supervisor_misiones" />
+</androidx.constraintlayout.widget.ConstraintLayout>

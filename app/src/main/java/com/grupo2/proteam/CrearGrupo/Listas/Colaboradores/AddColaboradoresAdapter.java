@@ -16,7 +16,7 @@ import java.util.List;
 public class AddColaboradoresAdapter extends RecyclerView.Adapter<AddColaboradoresViewHolder>{
     private final List<UsuarioData> localDataSet;
     private SoftReference<itemAddColaboradoresListener> listenerSelectos;
-    public static final String TAG = "MisionesAdapter";
+    public static final String TAG = "SMisionesAdapter";
 
     public AddColaboradoresAdapter(List<UsuarioData> dataSet, itemAddColaboradoresListener listener) {
         localDataSet = dataSet;

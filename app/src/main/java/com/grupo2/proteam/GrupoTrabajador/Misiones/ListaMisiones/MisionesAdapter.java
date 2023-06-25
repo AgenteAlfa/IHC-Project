@@ -20,7 +20,7 @@ import java.util.List;
 public class MisionesAdapter extends RecyclerView.Adapter<MisionesViewHolder>{
     private final List<MisionData> localDataSet;
     private final SoftReference<itemMisionesListener> listenerGrupo;
-    public static final String TAG = "MisionesAdapter";
+    public static final String TAG = "SMisionesAdapter";
 
     public MisionesAdapter(List<MisionData> dataSet, itemMisionesListener listener) {
         listenerGrupo = new SoftReference<>(listener);

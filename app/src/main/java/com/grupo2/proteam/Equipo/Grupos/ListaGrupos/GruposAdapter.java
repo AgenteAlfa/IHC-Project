@@ -18,7 +18,7 @@ import java.util.List;
 public class GruposAdapter extends RecyclerView.Adapter<GruposViewHolder>{
     private final List<GrupoData> localDataSet;
     private SoftReference<itemGruposListener> listenerGrupo;
-    public static final String TAG = "MisionesAdapter";
+    public static final String TAG = "SMisionesAdapter";
     private boolean Admin;
 
     public GruposAdapter(List<GrupoData> dataSet, boolean isAdmin, itemGruposListener listener) {
