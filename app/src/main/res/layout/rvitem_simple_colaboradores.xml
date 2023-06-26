@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+                                   xmlns:app="http://schemas.android.com/apk/res-auto"
+                                   xmlns:tools="http://schemas.android.com/tools"
+                                   android:layout_width="match_parent"
+                                   android:layout_height="wrap_content"
+                                   android:layout_margin="4dp"
+                                   app:cardBackgroundColor="@color/gris_claro"
+                                   app:cardCornerRadius="8dp"
+                                   app:cardElevation="4dp"
+                                   app:contentPadding="4dp">
+
+    <LinearLayout
+        android:id="@+id/ListaSimpleColaboradores_lyItem"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        tools:visibility="visible">
+
+        <TextView
+            android:id="@+id/ListaSimpleColaboradores_txtNyA"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:padding="8dp"
+            android:textColor="@color/black"
+            tools:text="Colaborador productivo" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/ListaSimpleClaboradores_cvTipo"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_margin="8dp"
+            app:cardBackgroundColor="@color/verde_1"
+            app:cardCornerRadius="8dp">
+
+            <TextView
+                android:id="@+id/ListaSimpleClaboradores_txtTipo"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:ems="8"
+                android:gravity="center"
+                android:text="Colaborador"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+        </androidx.cardview.widget.CardView>
+
+        <ImageButton
+            android:id="@+id/ListaSimpleColaboradores_ibtnEliminar"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:backgroundTint="@color/gris_claro"
+            android:contentDescription="Cerrar"
+            android:src="@drawable/ic_cerrar"
+            tools:visibility="gone" />
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>
