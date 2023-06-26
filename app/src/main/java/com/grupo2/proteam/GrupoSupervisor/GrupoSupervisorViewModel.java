@@ -37,11 +37,14 @@ public class GrupoSupervisorViewModel extends ViewModel {
     private final MutableLiveData<EquipoData> _EquipoData;
     private final MutableLiveData<HashMap<String, UsuarioData>> _Colaboradores;
     private final MutableLiveData<List<MisionData>> _Misiones;
+    private final MutableLiveData<List<MisionData>> _Historial;
     private final MutableLiveData<List<SolicitudData>> _Solicitudes;
     private DocumentReference DRGrupo;
     private CollectionReference CRMisiones, CRHistorial, CRSolicitudes;
 
     public static final String TAG  = "GrupoSupervisorViewModel";
+
+
 
     public GrupoSupervisorViewModel() {
         _GrupoData = new MutableLiveData<>();
@@ -49,6 +52,7 @@ public class GrupoSupervisorViewModel extends ViewModel {
         _Colaboradores = new MutableLiveData<>();
         _Misiones = new MutableLiveData<>();
         _Solicitudes = new MutableLiveData<>();
+        _Historial = new MutableLiveData<>();;
     }
 
     public void Inicializar(String idEquipo, String idGrupo)
@@ -101,6 +105,7 @@ public class GrupoSupervisorViewModel extends ViewModel {
                 }
                 _Misiones.setValue(lstMisiones);
                 ActualizarSolicitudes();
+                ActualizarHistorial();
             }
         });
     }
@@ -137,6 +142,25 @@ public class GrupoSupervisorViewModel extends ViewModel {
 
                  _Solicitudes.setValue(arrMisionesSolicitadas);
 
+            }
+        });
+    }
+    public void ActualizarHistorial()
+    {
+        CRHistorial.get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+            @Override
+            public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+                List<MisionData> lstHistorial = new ArrayList<>();
+                for (QueryDocumentSnapshot document : queryDocumentSnapshots) {
+                    Mision M =  document.toObject(Mision.class);
+                    List<UsuarioData> arr = new ArrayList<>();
+                    for (String colaboradorID : M.getColaboradores()) {
+                        arr.add(_Colaboradores.getValue().get(colaboradorID));
+                    }
+                    MisionData obj = new MisionData(document.toObject(Mision.class), document.getId(), "Mision Completada", arr);
+                    lstHistorial.add(obj);
+                }
+                _Historial.setValue(lstHistorial);
             }
         });
     }
@@ -210,5 +234,9 @@ public class GrupoSupervisorViewModel extends ViewModel {
 
     public MutableLiveData<List<SolicitudData>> get_Solicitudes() {
         return _Solicitudes;
+    }
+
+    public MutableLiveData<List<MisionData>> get_Historial() {
+        return _Historial;
     }
 }

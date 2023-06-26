@@ -33,6 +33,7 @@ public class GrupoTrabajadorViewModel extends ViewModel {
     private final MutableLiveData<EquipoData> _EquipoData;
     private final MutableLiveData<HashMap<String,UsuarioData>> _Colaboradores;
     private final MutableLiveData<List<MisionData>> _Misiones;
+    private final MutableLiveData<List<MisionData>> _Historial;
     private DocumentReference DRGrupo;
     private CollectionReference CRMisiones, CRHistorial, CRSolicitudes;
 
@@ -41,6 +42,7 @@ public class GrupoTrabajadorViewModel extends ViewModel {
         _EquipoData = new MutableLiveData<>();
         _Colaboradores = new MutableLiveData<>();
         _Misiones = new MutableLiveData<>();
+        _Historial = new MutableLiveData<>();
     }
 
     public void Inicializar(String idEquipo, String idGrupo)
@@ -84,6 +86,7 @@ public class GrupoTrabajadorViewModel extends ViewModel {
                     lstMisiones.add(obj);
                 }
                 _Misiones.setValue(lstMisiones);
+                ActualizarHistorial();
             }
         });
     }
@@ -129,6 +132,27 @@ public class GrupoTrabajadorViewModel extends ViewModel {
             }
         });
     }
+
+    public void ActualizarHistorial()
+    {
+        CRHistorial.get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+            @Override
+            public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+                List<MisionData> lstHistorial = new ArrayList<>();
+                for (QueryDocumentSnapshot document : queryDocumentSnapshots) {
+                    Mision M =  document.toObject(Mision.class);
+                    List<UsuarioData> arr = new ArrayList<>();
+                    for (String colaboradorID : M.getColaboradores()) {
+                        arr.add(_Colaboradores.getValue().get(colaboradorID));
+                    }
+                    MisionData obj = new MisionData(document.toObject(Mision.class), document.getId(), "Mision Completada", arr);
+                    lstHistorial.add(obj);
+                }
+                _Historial.setValue(lstHistorial);
+            }
+        });
+    }
+
     public interface PostListener
     {
         void post();
@@ -148,5 +172,8 @@ public class GrupoTrabajadorViewModel extends ViewModel {
 
     public MutableLiveData<List<MisionData>> get_Misiones() {
         return _Misiones;
+    }
+    public MutableLiveData<List<MisionData>> get_Historial() {
+        return _Historial;
     }
 }
