@@ -4,14 +4,14 @@ import java.util.Date;
 
 public class Solicitud {
     private Date fecha;
-    private String ID;
+    private String id;
 
     public Solicitud() {
     }
 
-    public Solicitud(Date fecha, String ID) {
+    public Solicitud(Date fecha, String id) {
         this.fecha = fecha;
-        this.ID = ID;
+        this.id = id;
     }
 
     public Date getFecha() {
@@ -19,6 +19,6 @@ public class Solicitud {
     }
 
     public String getID() {
-        return ID;
+        return id;
     }
 }

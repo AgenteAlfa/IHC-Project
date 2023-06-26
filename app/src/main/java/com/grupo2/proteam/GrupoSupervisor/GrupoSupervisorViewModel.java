@@ -1,5 +1,7 @@
 package com.grupo2.proteam.GrupoSupervisor;
 
+import android.util.Log;
+
 import androidx.arch.core.util.Function;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
@@ -17,11 +19,13 @@ import com.google.firebase.firestore.QuerySnapshot;
 import com.grupo2.proteam.FStore.Compuestos.EquipoData;
 import com.grupo2.proteam.FStore.Compuestos.GrupoData;
 import com.grupo2.proteam.FStore.Compuestos.MisionData;
+import com.grupo2.proteam.FStore.Compuestos.SolicitudData;
 import com.grupo2.proteam.FStore.Compuestos.UsuarioData;
 import com.grupo2.proteam.FStore.Equipo;
 import com.grupo2.proteam.FStore.Grupo;
 import com.grupo2.proteam.FStore.Mision;
 import com.grupo2.proteam.FStore.PrivadoUsuario;
+import com.grupo2.proteam.FStore.Solicitud;
 import com.grupo2.proteam.GrupoTrabajador.GrupoTrabajadorViewModel;
 
 import java.util.ArrayList;
@@ -33,21 +37,25 @@ public class GrupoSupervisorViewModel extends ViewModel {
     private final MutableLiveData<EquipoData> _EquipoData;
     private final MutableLiveData<HashMap<String, UsuarioData>> _Colaboradores;
     private final MutableLiveData<List<MisionData>> _Misiones;
+    private final MutableLiveData<List<SolicitudData>> _Solicitudes;
     private DocumentReference DRGrupo;
     private CollectionReference CRMisiones, CRHistorial, CRSolicitudes;
+
+    public static final String TAG  = "GrupoSupervisorViewModel";
 
     public GrupoSupervisorViewModel() {
         _GrupoData = new MutableLiveData<>();
         _EquipoData = new MutableLiveData<>();
         _Colaboradores = new MutableLiveData<>();
         _Misiones = new MutableLiveData<>();
+        _Solicitudes = new MutableLiveData<>();
     }
 
     public void Inicializar(String idEquipo, String idGrupo)
     {
         SetEquipoID(idEquipo, () ->
                 ActualizarListaColaboradores(() ->
-                        SetGrupoID(idEquipo, idGrupo, this::ActualizarMisiones)));;
+                        SetGrupoID(idEquipo, idGrupo, () -> ActualizarMisiones())));;
     }
 
     public void SetGrupoID(String idEquipo, String idGrupo, PostListener listener)
@@ -92,6 +100,7 @@ public class GrupoSupervisorViewModel extends ViewModel {
                     lstMisiones.add(obj);
                 }
                 _Misiones.setValue(lstMisiones);
+                ActualizarSolicitudes();
             }
         });
     }
@@ -106,7 +115,57 @@ public class GrupoSupervisorViewModel extends ViewModel {
         });
     }
 
+    public void ActualizarSolicitudes()
+    {
+        CRSolicitudes.get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+            @Override
+            public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+                 List<Solicitud> arrSolicitudes = queryDocumentSnapshots.toObjects(Solicitud.class);
 
+                 List<MisionData> arrMisiones = _Misiones.getValue();
+                 List<SolicitudData> arrMisionesSolicitadas = new ArrayList<>();
+                 for (Solicitud solicitud : arrSolicitudes) {
+                     Log.d(TAG, "onSuccess: Solicitud ID = " + solicitud.getID());
+                    for (MisionData mision : arrMisiones) {
+                        if (mision.getID().equals(solicitud.getID()))
+                        {
+                            SolicitudData SD = new SolicitudData(solicitud, mision);
+                            arrMisionesSolicitadas.add(SD);
+                        }
+                    }
+                }
+
+                 _Solicitudes.setValue(arrMisionesSolicitadas);
+
+            }
+        });
+    }
+    public void EliminarSolicitud(SolicitudData solicitudData, PostListener listener)
+    {
+        CRSolicitudes.document(solicitudData.getID()).delete().addOnSuccessListener(new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void unused) {
+                listener.post();
+            }
+        });
+    }
+
+    public void AceptarSolicitud(SolicitudData solicitudData, PostListener listener)
+    {
+        Mision Mision = solicitudData.getMision();
+        Mision.setCompletado(solicitudData.getFecha());
+        CRHistorial.add(Mision).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+            @Override
+            public void onSuccess(DocumentReference documentReference) {
+                CRMisiones.document(solicitudData.getID()).delete().addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void unused) {
+                        listener.post();
+                    }
+                });
+            }
+        });
+    }
 
 
     public void ActualizarListaColaboradores(PostListener postListener)
@@ -147,5 +206,9 @@ public class GrupoSupervisorViewModel extends ViewModel {
 
     public MutableLiveData<List<MisionData>> get_Misiones() {
         return _Misiones;
+    }
+
+    public MutableLiveData<List<SolicitudData>> get_Solicitudes() {
+        return _Solicitudes;
     }
 }

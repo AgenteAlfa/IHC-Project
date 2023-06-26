@@ -78,10 +78,10 @@
                         android:layout_height="48dp"
                         android:gravity="center_vertical"
                         android:padding="8dp"
-                        android:text="Urgente"
                         android:textColor="@color/black"
                         android:textSize="20sp"
-                        android:textStyle="bold" />
+                        android:textStyle="bold"
+                        tools:text="Urgente mision de pruebas" />
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
@@ -139,6 +139,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:padding="8dp"
+                        android:textColor="@color/black_suave"
                         android:textSize="14sp"
                         tools:text="Colaborador 1, Colaborador 2 y colaboradores mas" />
                 </LinearLayout>

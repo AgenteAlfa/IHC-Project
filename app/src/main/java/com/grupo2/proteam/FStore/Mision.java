@@ -46,4 +46,8 @@ public class Mision {
     public String getTitulo() {
         return titulo;
     }
+
+    public void setCompletado(Date completado) {
+        this.completado = completado;
+    }
 }
