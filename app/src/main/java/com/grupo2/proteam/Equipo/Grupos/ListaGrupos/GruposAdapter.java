@@ -42,14 +42,13 @@ public class GruposAdapter extends RecyclerView.Adapter<GruposViewHolder>{
     public void onBindViewHolder(@NonNull GruposViewHolder viewHolder, int position) {
         boolean res = false;
         if (localDataSet.size() > position)
-        for (String supervisor : localDataSet.get(position).getSupervisores()) {
-            if (ID.equals(supervisor))
-            {
-                res = true;
-                break;
+            for (String supervisor : localDataSet.get(position).getSupervisores()) {
+                if (ID.equals(supervisor))
+                {
+                    res = true;
+                    break;
+                }
             }
-        }
-
         viewHolder.Setear(localDataSet.size() <= position? null : localDataSet.get(position) , res || Admin);
     }
 

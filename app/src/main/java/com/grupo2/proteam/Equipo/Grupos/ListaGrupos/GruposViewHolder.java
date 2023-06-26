@@ -53,6 +53,7 @@ public class GruposViewHolder extends RecyclerView.ViewHolder{
             Administrar.setOnClickListener(view -> listenerGrupo.get().onClickAdministrar(GrupoIesimo));
             Entrar.setOnClickListener(view -> listenerGrupo.get().onClickEntrar(GrupoIesimo));
         }
+        Agregar.setVisibility(isSupervisor? View.VISIBLE : View.GONE);
 
 
     }
