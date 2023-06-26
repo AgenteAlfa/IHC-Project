@@ -12,6 +12,7 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.grupo2.proteam.CrearGrupo.CrearGrupoActivity;
 import com.grupo2.proteam.Equipo.Grupos.ListaGrupos.GruposAdapter;
 import com.grupo2.proteam.Equipo.Grupos.ListaGrupos.itemGruposListener;
@@ -52,7 +53,10 @@ public class GruposFragment extends Fragment {
 
     private void setLista(List<GrupoData> lstGrupos)
     {
-        GruposAdapter gruposAdapter = new GruposAdapter(lstGrupos, DataVM.get_isAdmin().getValue(), new itemGruposListener() {
+        FirebaseAuth mAuth = FirebaseAuth.getInstance();
+        String uuid = mAuth.getCurrentUser().getUid();
+
+        GruposAdapter gruposAdapter = new GruposAdapter(lstGrupos, DataVM.get_isAdmin().getValue(), uuid,  new itemGruposListener() {
             @Override
             public void onClickAdministrar(GrupoData G) {
                 Intent I = new Intent(getActivity(), GrupoSupervisorActivity.class);

@@ -20,11 +20,13 @@ public class GruposAdapter extends RecyclerView.Adapter<GruposViewHolder>{
     private SoftReference<itemGruposListener> listenerGrupo;
     public static final String TAG = "SMisionesAdapter";
     private boolean Admin;
+    private String ID;
 
-    public GruposAdapter(List<GrupoData> dataSet, boolean isAdmin, itemGruposListener listener) {
+    public GruposAdapter(List<GrupoData> dataSet, boolean isAdmin, String id, itemGruposListener listener) {
         listenerGrupo = new SoftReference<>(listener);
         localDataSet = dataSet;
         Admin = isAdmin;
+        ID = id;
     }
 
     @NonNull
@@ -38,7 +40,17 @@ public class GruposAdapter extends RecyclerView.Adapter<GruposViewHolder>{
 
     @Override
     public void onBindViewHolder(@NonNull GruposViewHolder viewHolder, int position) {
-        viewHolder.Setear(localDataSet.size() <= position? null : localDataSet.get(position) , Admin);
+        boolean res = false;
+        if (localDataSet.size() > position)
+        for (String supervisor : localDataSet.get(position).getSupervisores()) {
+            if (ID.equals(supervisor))
+            {
+                res = true;
+                break;
+            }
+        }
+
+        viewHolder.Setear(localDataSet.size() <= position? null : localDataSet.get(position) , res || Admin);
     }
 
     @Override

@@ -61,7 +61,8 @@
         android:layout_height="wrap_content"
         android:layout_gravity="start"
         android:layout_marginBottom="8dp"
-        android:text="Puntajes" />
+        android:text="Puntajes"
+        android:visibility="gone" />
 
     <androidx.cardview.widget.CardView
         android:layout_width="wrap_content"
