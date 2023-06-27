@@ -65,6 +65,7 @@ public class CrearGrupoActivity extends AppCompatActivity {
                         .addOnSuccessListener(documentReference ->
                         {
                             Toast.makeText(CrearGrupoActivity.this, "Grupo creado", Toast.LENGTH_SHORT).show();
+
                             finish();
                         });
 

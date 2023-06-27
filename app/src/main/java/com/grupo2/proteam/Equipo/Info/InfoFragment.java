@@ -16,6 +16,7 @@ import androidx.lifecycle.ViewModelProvider;
 import com.grupo2.proteam.Equipo.Info.Lista.ColaboradoresAdapter;
 import com.grupo2.proteam.FStore.Codigo;
 import com.grupo2.proteam.FStore.Compuestos.EquipoData;
+import com.grupo2.proteam.FStore.Compuestos.UsuarioData;
 import com.grupo2.proteam.FStore.PrivadoUsuario;
 import com.grupo2.proteam.R;
 import com.grupo2.proteam.Equipo.EquipoViewModel;
@@ -56,10 +57,10 @@ public class InfoFragment extends Fragment {
 
         lstColaboradores = root.findViewById(R.id.frgInfo_lstColaboradores);
         LinearLayout ContenedorColaboradores = root.findViewById(R.id.frgInfo_lyContenedorLst);
-        DataVM.get_Colaboradores().observe(getViewLifecycleOwner(), new Observer<List<PrivadoUsuario>>() {
+        DataVM.get_Colaboradores().observe(getViewLifecycleOwner(), new Observer<List<UsuarioData>>() {
             @Override
-            public void onChanged(List<PrivadoUsuario> privadoUsuarios) {
-                ColaboradoresAdapter Adapter = new ColaboradoresAdapter(privadoUsuarios);
+            public void onChanged(List<UsuarioData> usuarioData) {
+                ColaboradoresAdapter Adapter = new ColaboradoresAdapter(usuarioData);
                 lstColaboradores.setAdapter(Adapter);
                 lstColaboradores.setOnGroupExpandListener(new ExpandableListView.OnGroupExpandListener() {
                     @Override

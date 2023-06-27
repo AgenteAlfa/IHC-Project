@@ -10,13 +10,16 @@ import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FieldPath;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.grupo2.proteam.FStore.Codigo;
+import com.grupo2.proteam.FStore.Compuestos.UsuarioData;
 import com.grupo2.proteam.FStore.Equipo;
 import com.grupo2.proteam.FStore.Compuestos.EquipoData;
 import com.grupo2.proteam.FStore.Grupo;
 import com.grupo2.proteam.FStore.Compuestos.GrupoData;
 import com.grupo2.proteam.FStore.PrivadoUsuario;
+import com.grupo2.proteam.FStore.Puntaje;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,7 +30,8 @@ public class EquipoViewModel extends ViewModel {
     private final MutableLiveData<List<GrupoData>> _lstGrupos;
     private final MutableLiveData<Codigo> _Codigo;
     private final MutableLiveData<Boolean> _isAdmin;
-    private final MutableLiveData<List<PrivadoUsuario>> _Colaboradores;
+    private final MutableLiveData<List<UsuarioData>> _Colaboradores;
+    private final MutableLiveData<List<Puntaje>> _Puntajes;
     private DocumentReference DREquipo;
     public static final String TAG = "EquipoViewModel";
 
@@ -39,7 +43,7 @@ public class EquipoViewModel extends ViewModel {
         _Codigo = new MutableLiveData<>();
         _isAdmin = new MutableLiveData<>();
         _Colaboradores = new MutableLiveData<>(new ArrayList<>());
-
+        _Puntajes = new MutableLiveData<>();
     }
     public void BuscarCodigo()
     {
@@ -91,6 +95,7 @@ public class EquipoViewModel extends ViewModel {
             BuscarCodigo();
         });
         ActualizarListaGrupos();
+        //ActualizarListaPuntajes();
 
     }
     public void ActualizarListaGrupos()
@@ -120,13 +125,52 @@ public class EquipoViewModel extends ViewModel {
             @Override
             public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
                 Log.d(TAG, "onSuccess: Actualizando lista de colaboradores");
-                for (PrivadoUsuario usuario : queryDocumentSnapshots.toObjects(PrivadoUsuario.class)) {
-                    Log.d(TAG, "onSuccess: usuario : " + usuario.getNyA());
+                List<UsuarioData> lst = new ArrayList<>();
+                for (QueryDocumentSnapshot queryDocumentSnapshot : queryDocumentSnapshots) {
+                    UsuarioData user = new UsuarioData(queryDocumentSnapshot.toObject(PrivadoUsuario.class), queryDocumentSnapshot.getId(), false);
+                    lst.add(user);
                 }
-
-                _Colaboradores.setValue(queryDocumentSnapshots.toObjects(PrivadoUsuario.class));
+                Log.d(TAG, "onSuccess: hay colaboradores "  + lst.size());
+                _Colaboradores.setValue(lst);
+                ActualizarListaPuntajes();
             }
         });
+    }
+    public void ActualizarListaPuntajes()
+    {
+        DREquipo.collection("Puntaje").get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+            @Override
+            public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+                List<Puntaje> puntajes = queryDocumentSnapshots.toObjects(Puntaje.class);
+                _Puntajes.setValue(puntajes);
+                Log.d(TAG, "onSuccess: HAY " + puntajes.size() + " puntajes");
+                Log.d(TAG, "onSuccess: HAY " + _Colaboradores.getValue().size() + " colaboradores");
+                if (puntajes.size() < _Colaboradores.getValue().size())
+                    RellenarPuntajes();
+            }
+        });
+    }
+    public void RellenarPuntajes(){
+        Log.d(TAG, "RellenarPuntajes: Rellenando");
+        List<Puntaje> puntajeList = new ArrayList<>();
+        for (UsuarioData colaborador : _Colaboradores.getValue()) {
+            boolean presente = false;
+            for (Puntaje puntaje : _Puntajes.getValue()) {
+                if (puntaje.getId().equals(colaborador.getID()))
+                {
+                    puntajeList.add(puntaje);
+                    presente = true;
+                }
+            }
+            //Si no esta presente agregar con 0 puntos;
+            if (!presente)
+            {
+                Puntaje P = new Puntaje(0,colaborador.getNyA(), colaborador.getID());
+                puntajeList.add(P);
+                DREquipo.collection("Puntaje").document(P.getId()).set(P);
+            }
+        }
+        _Puntajes.setValue(puntajeList);
     }
 
     public MutableLiveData<EquipoData> get_EquipoData() {
@@ -145,7 +189,11 @@ public class EquipoViewModel extends ViewModel {
         return _isAdmin;
     }
 
-    public MutableLiveData<List<PrivadoUsuario>> get_Colaboradores() {
+    public MutableLiveData<List<UsuarioData>> get_Colaboradores() {
         return _Colaboradores;
+    }
+
+    public MutableLiveData<List<Puntaje>> get_Puntajes() {
+        return _Puntajes;
     }
 }

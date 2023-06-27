@@ -8,16 +8,16 @@ import android.widget.BaseExpandableListAdapter;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.grupo2.proteam.FStore.PrivadoUsuario;
+import com.grupo2.proteam.FStore.Compuestos.UsuarioData;
 import com.grupo2.proteam.R;
 
 import java.util.List;
 
 public class ColaboradoresAdapter extends BaseExpandableListAdapter {
 
-        private final List<PrivadoUsuario> Colaboradores;
+        private final List<UsuarioData> Colaboradores;
 
-        public ColaboradoresAdapter(List<PrivadoUsuario> colaboradores) {
+        public ColaboradoresAdapter(List<UsuarioData> colaboradores) {
             Colaboradores = colaboradores;
         }
 

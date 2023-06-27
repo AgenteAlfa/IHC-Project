@@ -13,6 +13,7 @@ import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FieldPath;
+import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
@@ -40,6 +41,7 @@ public class GrupoSupervisorViewModel extends ViewModel {
     private final MutableLiveData<List<MisionData>> _Historial;
     private final MutableLiveData<List<SolicitudData>> _Solicitudes;
     private DocumentReference DRGrupo;
+    private CollectionReference CRPuntajes;
     private CollectionReference CRMisiones, CRHistorial, CRSolicitudes;
 
     public static final String TAG  = "GrupoSupervisorViewModel";
@@ -66,6 +68,7 @@ public class GrupoSupervisorViewModel extends ViewModel {
     {
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         DRGrupo = db.collection("Equipos").document(idEquipo).collection("Grupos").document(idGrupo);
+        CRPuntajes = db.collection("Equipos").document(idEquipo).collection("Puntaje");
         CRMisiones = DRGrupo.collection("Misiones");
         CRHistorial = DRGrupo.collection("Historial");
         CRSolicitudes = DRGrupo.collection("Solicitudes");
@@ -176,7 +179,9 @@ public class GrupoSupervisorViewModel extends ViewModel {
 
     public void AceptarSolicitud(SolicitudData solicitudData, PostListener listener)
     {
+
         Mision Mision = solicitudData.getMision();
+
         Mision.setCompletado(solicitudData.getFecha());
         CRHistorial.add(Mision).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
             @Override
@@ -189,6 +194,16 @@ public class GrupoSupervisorViewModel extends ViewModel {
                 });
             }
         });
+        for (String colaborador : solicitudData.getMision().getColaboradores()) {
+            CRPuntajes.document(colaborador).update("puntaje", FieldValue.increment(Mision.getPuntaje())).addOnSuccessListener(new OnSuccessListener<Void>() {
+                @Override
+                public void onSuccess(Void unused) {
+                    Log.d(TAG, "onSuccess: Puntaje incrementado " + colaborador);
+                }
+            });
+        }
+
+
     }
 
 
