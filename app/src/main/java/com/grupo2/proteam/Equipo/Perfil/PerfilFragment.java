@@ -47,6 +47,14 @@ public class PerfilFragment extends Fragment {
             }
         });
 
+        btnPremios.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                DFPremios Dialog = new DFPremios(DataVM.get_isAdmin().getValue());
+                Dialog.show(getActivity().getSupportFragmentManager(),"");
+            }
+        });
+
         return root;
     }
 

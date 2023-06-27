@@ -18,6 +18,7 @@ import com.grupo2.proteam.FStore.Equipo;
 import com.grupo2.proteam.FStore.Compuestos.EquipoData;
 import com.grupo2.proteam.FStore.Grupo;
 import com.grupo2.proteam.FStore.Compuestos.GrupoData;
+import com.grupo2.proteam.FStore.Premio;
 import com.grupo2.proteam.FStore.PrivadoUsuario;
 import com.grupo2.proteam.FStore.Puntaje;
 
@@ -32,6 +33,7 @@ public class EquipoViewModel extends ViewModel {
     private final MutableLiveData<Boolean> _isAdmin;
     private final MutableLiveData<List<UsuarioData>> _Colaboradores;
     private final MutableLiveData<List<Puntaje>> _Puntajes;
+    private final MutableLiveData<List<Premio>> _Premios;
     private DocumentReference DREquipo;
     public static final String TAG = "EquipoViewModel";
 
@@ -44,6 +46,7 @@ public class EquipoViewModel extends ViewModel {
         _isAdmin = new MutableLiveData<>();
         _Colaboradores = new MutableLiveData<>(new ArrayList<>());
         _Puntajes = new MutableLiveData<>();
+        _Premios = new MutableLiveData<>();
     }
     public void BuscarCodigo()
     {
@@ -95,9 +98,32 @@ public class EquipoViewModel extends ViewModel {
             BuscarCodigo();
         });
         ActualizarListaGrupos();
-        //ActualizarListaPuntajes();
+        ActualizarPremios();
 
     }
+    public void AgregarPremio(Premio p)
+    {
+        DREquipo.collection("Premios").add(p).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+            @Override
+            public void onSuccess(DocumentReference documentReference) {
+                ActualizarPremios();
+            }
+        });
+
+    }
+
+
+    public void ActualizarPremios()
+    {
+        DREquipo.collection("Premios").get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+            @Override
+            public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+                _Premios.setValue(queryDocumentSnapshots.toObjects(Premio.class));
+            }
+        });
+    }
+
+
     public void ActualizarListaGrupos()
     {
         //Grupos
@@ -195,5 +221,9 @@ public class EquipoViewModel extends ViewModel {
 
     public MutableLiveData<List<Puntaje>> get_Puntajes() {
         return _Puntajes;
+    }
+
+    public MutableLiveData<List<Premio>> get_Premios() {
+        return _Premios;
     }
 }
