@@ -17,7 +17,8 @@ El sistema tiene una buena precisión para los comandos de voz usados para la ac
 El sistema cumple permite recompensas definidas por el “Administrador” a obtenerse mediante puntos obtenidos por los “colaboradores”, estas recompensas pueden ser varias como un dia libre, un aumento salarial, vacaciones, etc 
 
 ## Diagrama de Casos de Uso
-Arrastrar la imagen y se generara automaticamente
+
+![7c863a02-ac71-4338-bb4a-a434220489bb](https://github.com/AgenteAlfa/IHC-Project/assets/26251414/f01ba7fc-925b-49e3-b336-cc59c66a0b46)
 
 ## Requerimientos
 |N°| Tipo de Req | Caso de Uso| Descripción                | Justificación          | Criterio de Cumplimiento    | Conflictos        |
