@@ -146,21 +146,30 @@ public class EquipoViewModel extends ViewModel {
     public void ActualizarListaColaboradores()
     {
         FirebaseFirestore db = FirebaseFirestore.getInstance();
-        db.collection("Usuarios").whereIn(FieldPath.documentId(), _EquipoData.getValue().
-                getColaboradores()).get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
-            @Override
-            public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
-                Log.d(TAG, "onSuccess: Actualizando lista de colaboradores");
-                List<UsuarioData> lst = new ArrayList<>();
-                for (QueryDocumentSnapshot queryDocumentSnapshot : queryDocumentSnapshots) {
-                    UsuarioData user = new UsuarioData(queryDocumentSnapshot.toObject(PrivadoUsuario.class), queryDocumentSnapshot.getId(), false);
-                    lst.add(user);
+        List<String> Str_colaboradores = _EquipoData.getValue().getColaboradores();
+        List<UsuarioData> lst = new ArrayList<>();
+        if (Str_colaboradores.size() > 0)
+        {
+            db.collection("Usuarios").whereIn(FieldPath.documentId(), Str_colaboradores).get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+                @Override
+                public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+                    Log.d(TAG, "onSuccess: Actualizando lista de colaboradores");
+                    for (QueryDocumentSnapshot queryDocumentSnapshot : queryDocumentSnapshots) {
+                        UsuarioData user = new UsuarioData(queryDocumentSnapshot.toObject(PrivadoUsuario.class), queryDocumentSnapshot.getId(), false);
+                        lst.add(user);
+                    }
+                    Log.d(TAG, "onSuccess: hay colaboradores "  + lst.size());
+                    _Colaboradores.setValue(lst);
+                    ActualizarListaPuntajes();
                 }
-                Log.d(TAG, "onSuccess: hay colaboradores "  + lst.size());
-                _Colaboradores.setValue(lst);
-                ActualizarListaPuntajes();
-            }
-        });
+            });
+        }
+        else
+        {
+            _Colaboradores.setValue(lst);
+            ActualizarListaPuntajes();
+        }
+
     }
     public void ActualizarListaPuntajes()
     {
