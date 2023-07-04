@@ -53,18 +53,27 @@ public class CrearGrupoViewModel extends ViewModel {
         assert  _EquipoData.getValue() != null;
 
         FirebaseFirestore db = FirebaseFirestore.getInstance();
-        db.collection("Usuarios").whereIn(FieldPath.documentId(), _EquipoData.getValue().
-                getColaboradores()).get()
-                .addOnSuccessListener(queryDocumentSnapshots -> {
-                    List<UsuarioData> arr = new ArrayList<>();
-                    for (DocumentSnapshot document : queryDocumentSnapshots.getDocuments()) {
-                        PrivadoUsuario p = document.toObject(PrivadoUsuario.class);
-                        assert p != null;
-                        arr.add(new UsuarioData(p, document.getId(), false));
-                    }
-                    _Colaboradores.setValue(arr);
-                    //_ResultadosBusqueda.setValue(arr);
-                });
+        List<String> Str_colaboradores = _EquipoData.getValue().getColaboradores();
+        List<UsuarioData> arr = new ArrayList<>();
+        if (Str_colaboradores.size() > 0)
+        {
+            db.collection("Usuarios").whereIn(FieldPath.documentId(),Str_colaboradores).get()
+                    .addOnSuccessListener(queryDocumentSnapshots -> {
+                        for (DocumentSnapshot document : queryDocumentSnapshots.getDocuments()) {
+                            PrivadoUsuario p = document.toObject(PrivadoUsuario.class);
+                            assert p != null;
+                            arr.add(new UsuarioData(p, document.getId(), false));
+                        }
+                        _Colaboradores.setValue(arr);
+                        //_ResultadosBusqueda.setValue(arr);
+                    });
+        }
+        else
+        {
+            _Colaboradores.setValue(arr);
+        }
+
+
     }
 
     public void Buscar()
