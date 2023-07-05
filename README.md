@@ -57,3 +57,5 @@ El aplicativo contará con una señal para indicar que el sistema está escuchan
 - BAUTISTA SANI, ARNOLD JEREMY
 - OLIVIERI ROMERO, STEFANO
 - SILVA GUANILO, ITALO ENRIQUE
+
+Apk Link: https://drive.google.com/file/d/1ji0MC4iqD7rwK8SwXIhXEw00nCYuRsS7/view?usp=sharing
