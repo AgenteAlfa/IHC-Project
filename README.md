@@ -59,3 +59,4 @@ El aplicativo contará con una señal para indicar que el sistema está escuchan
 - SILVA GUANILO, ITALO ENRIQUE
 
 Apk Link: https://drive.google.com/file/d/1ji0MC4iqD7rwK8SwXIhXEw00nCYuRsS7/view?usp=sharing
+Instrucciones: https://docs.google.com/document/d/1bHhZJbsuNmrrBvE2f_vBowaYeOcBWUIh_xkbgx6hJoE/edit?usp=sharing
